@@ -372,6 +372,9 @@ LOCK TABLES `operator` WRITE;
 INSERT INTO `operator` (`operatorid`, `password`, `firstname`, `lastname`, `email`, `phone`, `company`, `address`, `apikey`, `ip`, `active`, `creationdate`, `accesslevel`, `lastlogin`, `logincount`, `token`)
 VALUES
 	('fansy','*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9','Fansy','Fansy',NULL,NULL,NULL,NULL,'0df6465975814c4a1876c60c3fac1d4c',NULL,1,'2017-04-22',1,'2017-04-23',9,'075aa7b247ccb076b1b1fe3d06ef1227');
+INSERT INTO `operator` (`operatorid`, `password`, `firstname`, `lastname`, `email`, `phone`, `company`, `address`, `apikey`, `ip`, `active`, `creationdate`, `accesslevel`, `lastlogin`, `logincount`, `token`)
+VALUES
+	('admin','*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9','Admin','Admin',NULL,NULL,NULL,NULL,'0df6465975814c4a1876c60c3fac1d4c',NULL,1,'2017-04-22',1,'2017-04-23',9,'075aa7b247ccb076b1b1fe3d06ef1227');
 
 /*!40000 ALTER TABLE `operator` ENABLE KEYS */;
 UNLOCK TABLES;
