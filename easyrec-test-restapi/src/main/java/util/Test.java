@@ -5,6 +5,8 @@ package util;
  */
 public class Test {
     public static void main(String[] args) {
+        System.out.println(Utils.getSessionId("1"));
+        System.out.println(Utils.getSessionId("7"));
         System.out.println("hello world");
     }
 }
