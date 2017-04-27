@@ -1,0 +1,5 @@
+
+测试Rest API 示例：
+1. 需要新建tenant；
+2. 修改src/main/java/util/Utils里面对应的 token、APIKEY、tenantid；
+3. 运行demo，查看是否导入相关数据；
