@@ -1,13 +1,14 @@
 package util;
 
+import model.Rating;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggerFactory;
 import org.easyrec.model.core.web.Item;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
 /**
  * Created by fansy on 2017/4/27.
@@ -17,8 +18,11 @@ public class Utils {
     private static final String serverUrl ="http://localhost:8080";
 
     public static final String APIKEY ="0df6465975814c4a1876c60c3fac1d4c";
-    public static final String token = "8d6ddde777ae7917dce2b7d0b8cdcab9";
-    public static final String tenantid ="abc123";
+//    public static final String APIKEY ="0df6465975814c4a1876c60c3fac1d4c";
+    public static final String token = "459021c3bdd85fb5930ac496cf3ebb78";
+//    public static final String token = "8d6ddde777ae7917dce2b7d0b8cdcab9";
+    public static final String tenantid ="0123456abc";
+//    public static final String tenantid ="abc123";
 
 
     public static String getServer(){
@@ -42,5 +46,64 @@ public class Utils {
         logger.info("params: "+params.toString() );
 
         return params;
+    }
+
+    public static Map<String,String> rating2Map(Rating rating){
+//        {yourServerURL}/api/1.1/sendaction?apikey=8ab9dc3ffcdac576d0f298043a60517a&
+//                tenantid=EASYREC_DEMO&actiontype=PUT_INTO_SHOPPINGCART&itemid=42&
+// itemdescription=Fatboy Slim%20-%20The%20Rockafeller%20Skank&itemurl=/item/fatboyslim&
+// itemimageurl=/img/covers/fatboyslim.jpg&userid=24EH1723322222A3&
+// sessionid=F3D4E3BE31EE3FA069F5434DB7EC2E34&actiontime=01_01_2009_23_59_59&itemtype=ITEM
+        Map<String,String> params = new HashMap<>();
+        params.put("apikey",Utils.APIKEY);
+        params.put("token",Utils.token);
+        params.put("tenantid",Utils.tenantid);
+
+        params.put("itemid",rating.getItemid());
+        params.put("itemdescription",rating.getItemdescription());
+        params.put("itemurl",rating.getItemurl());
+        params.put("userid",rating.getUserid());
+        params.put("itemimageurl",rating.getItemimageurl());
+        params.put("actiontype",rating.getActiontype());
+        params.put("actionvalue",rating.getActionvalue());
+        params.put("itemtype",rating.getItemtype());
+        params.put("actioninfo",rating.getActioninfo());
+        params.put("sessionid",rating.getSessionid());
+
+        logger.info("params: "+params.toString() );
+        return params;
+    }
+
+    public static List<String> readFile(String filename) throws IOException {
+        List<String> list = new ArrayList<>();
+        System.out.println(new File(".").getAbsoluteFile());
+        FileReader fr = new FileReader(filename);
+
+        BufferedReader bf = new BufferedReader(fr);
+
+        String line = null;
+        while ((line=bf.readLine())!=null){
+           list.add(line);
+        }
+        bf.close();
+        fr.close();
+        return list;
+    }
+
+    public static String getItemDesc(String itemid){
+        return itemid+"Item";
+    }
+    public static String getItemUrl(String itemid){
+        return "/item/"+itemid;
+    }
+    public static String getItemImgUrl(String itemid){
+        return "/item/image/"+itemid;
+    }
+    public static String getSessionId(String userid){
+        return userid.hashCode() +userid;
+    }
+
+    public static String currentTime(){
+        return new Date().toString();
     }
 }

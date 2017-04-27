@@ -53,8 +53,11 @@ public class AddItem {
 //        Item item7 = new Item("1",1,"102","ITEM","102Item","/item/102","",0.0,true,new Date().toString());
 //
         Item[] items = new Item[7];
+        String itemid ;
         for(int i = 1;i <= items.length;i++){
-            items[i-1] = new Item("1",1,"10"+i,"ITEM","10"+i+"Item","/item/10"+i,"",0.0,true,new Date().toString());
+            itemid ="10" +i;
+            items[i-1] = new Item("1",1,itemid,"ITEM",Utils.getItemDesc(itemid),
+                    Utils.getItemUrl(itemid),Utils.getItemImgUrl(itemid),0.0,true,Utils.currentTime());
         }
         return items;
     }
