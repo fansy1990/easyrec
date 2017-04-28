@@ -17,12 +17,35 @@ public class Utils {
     private static final Log logger = LogFactory.getLog(Utils.class);
     private static final String serverUrl ="http://localhost:8080";
 
-    public static final String APIKEY ="0df6465975814c4a1876c60c3fac1d4c";
 //    public static final String APIKEY ="0df6465975814c4a1876c60c3fac1d4c";
-    public static final String token = "459021c3bdd85fb5930ac496cf3ebb78";
+//    public static final String APIKEY ="0df6465975814c4a1876c60c3fac1d4c";
+//    public static final String token = "459021c3bdd85fb5930ac496cf3ebb78";
 //    public static final String token = "8d6ddde777ae7917dce2b7d0b8cdcab9";
-    public static final String tenantid ="0123456abc";
+//    public static final String tenantid ="0123456abc";
 //    public static final String tenantid ="abc123";
+
+//    InputStream t = Utils.class.getClassLoader()
+//            .getResourceAsInputStream("/car_params.properties");
+    public static final String propertiesFile = "/tenant.properties";
+    private static Map<String,String> properties = new HashMap<>();
+
+    public static String getValue(String key){
+        if(properties.size() < 1 ){
+            try {
+                Properties props = new Properties();
+                InputStream in = new BufferedInputStream (Utils.class.getResourceAsStream(propertiesFile));
+                props.load(in);
+                properties.put("apikey",props.getProperty("apikey"));
+                properties.put("token",props.getProperty("token"));
+                properties.put("tenantid",props.getProperty("tenantid"));
+                logger.info("初始化"+propertiesFile+"文件成功!");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return properties.get(key);
+    }
 
 
     public static String getServer(){
@@ -34,9 +57,10 @@ public class Utils {
 //        token=b08f41cfa92b430538146cf474116c6d&tenantid=EASYREC_DEMO&itemid=42&
 // itemdescription=Fatboy%20Slim%20-%20The%20Rockafeller%20Skank&
 // itemurl=/item/fatboyslim&itemimageurl=/img/covers/fatboyslim.jpg&itemtype=ITEM?
-        params.put("apikey",Utils.APIKEY);
-        params.put("token",Utils.token);
-        params.put("tenantid",Utils.tenantid);
+        params.put("apikey",Utils.getValue("apikey"));
+        params.put("token",Utils.getValue("token"));
+        params.put("tenantid",Utils.getValue("tenantid"));
+
         params.put("itemid",item.getItemId());
         params.put("itemdescription",item.getDescription());
         params.put("itemurl",item.getUrl());
@@ -55,9 +79,9 @@ public class Utils {
 // itemimageurl=/img/covers/fatboyslim.jpg&userid=24EH1723322222A3&
 // sessionid=F3D4E3BE31EE3FA069F5434DB7EC2E34&actiontime=01_01_2009_23_59_59&itemtype=ITEM
         Map<String,String> params = new HashMap<>();
-        params.put("apikey",Utils.APIKEY);
-        params.put("token",Utils.token);
-        params.put("tenantid",Utils.tenantid);
+        params.put("apikey",Utils.getValue("apikey"));
+        params.put("token",Utils.getValue("token"));
+        params.put("tenantid",Utils.getValue("tenantid"));
 
         params.put("itemid",rating.getItemid());
         params.put("itemdescription",rating.getItemdescription());

@@ -37,8 +37,11 @@ public class RecExample {
         String userid= "1";
 
         Map<String, String> params = new HashMap<>();
-        params.put("apikey",Utils.APIKEY);
-        params.put("tenantid",Utils.tenantid);
+        params.put("apikey",Utils.getValue("apikey"));
+        params.put("tenantid",Utils.getValue("tenantid"));
+        params.put("token",Utils.getValue("token"));
+
+
         params.put("userid",userid);
         params.put("requesteditemtype","ITEM");
         params.put("sessionid",Utils.getSessionId(userid));
