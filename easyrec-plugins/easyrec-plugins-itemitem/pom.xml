@@ -22,26 +22,30 @@
     <parent>
         <artifactId>easyrec-plugins</artifactId>
         <groupId>org.easyrec</groupId>
-        <version>0.99-SNAPSHOT</version>
+        <!--<version>0.99-SNAPSHOT</version>-->
+        <version>1.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>easyrec-plugins-itemitem</artifactId>
-    <version>0.99-SNAPSHOT</version>
+    <!--<version>0.99-SNAPSHOT</version>-->
+    <version>1.0.2-SNAPSHOT</version>
     <name>easyrec - Plugins - Item-Item</name>
     <description>Another collaborative filtering algorithm using ratings for defining related items.</description>
-
+    <properties>
+        <root.project.version>1.0.2-SNAPSHOT</root.project.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.easyrec</groupId>
             <artifactId>easyrec-utils</artifactId>
-            <version>${project.version}</version>
+            <version>${root.project.version}</version>
             <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.easyrec</groupId>
             <artifactId>easyrec-core</artifactId>
-            <version>${project.version}</version>
+            <version>${root.project.version}</version>
             <!--<scope>provided</scope>-->
         </dependency>
     </dependencies>

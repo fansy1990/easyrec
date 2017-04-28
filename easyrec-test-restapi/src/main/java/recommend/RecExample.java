@@ -31,8 +31,8 @@ public class RecExample {
 //        {yourServerURL}/api/1.1/recommendationsforuser?apikey=8ab9dc3ffcdac576d0f298043a60517a&
 // tenantid=EASYREC_DEMO&userid=24EH1723322222A3&requesteditemtype=ITEM
 
-//        String url = Utils.getServer() +"/api/1.1/recommendationsforuser";
-        String url = Utils.getServer() +"/api/1.1/actionhistoryforuser";
+        String url = Utils.getServer() +"/api/1.1/recommendationsforuser";
+//        String url = Utils.getServer() +"/api/1.1/actionhistoryforuser";
 
         String userid= "1";
 
@@ -45,9 +45,10 @@ public class RecExample {
         params.put("userid",userid);
         params.put("requesteditemtype","ITEM");
         params.put("sessionid",Utils.getSessionId(userid));
+        params.put("actiontype","RATE");
         String result = HttpToolkit.doGet(url, params);
 
-        System.out.println("result:" + result);
+        Utils.printXMLStr( result);
 
 
 

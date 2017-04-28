@@ -23,6 +23,18 @@ public class AddRating {
             String result = HttpToolkit.doGet(url, params);
             System.out.println("result:" + result);
         }
+//        String itemid="104";
+//        String userid="1";
+//        String pref = "3";
+//        Rating rating = new Rating(itemid,Utils.getItemDesc(itemid),
+//                Utils.getItemUrl(itemid),userid,
+//                Utils.getItemImgUrl(itemid),"RATE",
+//                pref,Utils.currentTime(),
+//                "ITEM","",Utils.getSessionId(userid)
+//        );
+//        Map<String, String> params = Utils.rating2Map(rating);
+//        String result = HttpToolkit.doGet(url, params);
+//        System.out.println("result:" + result);
     }
 
     private static List<Rating> getRatings(String filename) throws IOException {
@@ -42,7 +54,7 @@ public class AddRating {
 //            String itemurl, String userid,
 //                    String itemimageurl,String actiontype,
 //                    String actionvalue,String actiontime,
-//                    String itemtype,String actioninfo){
+//                    String itemtype,String actioninfo,String sessionid){
             ratingList.add(new Rating(itemid,Utils.getItemDesc(itemid),
                     Utils.getItemUrl(itemid),userid,
                     Utils.getItemImgUrl(itemid),"RATE",

@@ -7,6 +7,12 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggerFactory;
 import org.easyrec.model.core.web.Item;
 
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.util.*;
 
@@ -129,5 +135,32 @@ public class Utils {
 
     public static String currentTime(){
         return new Date().toString();
+    }
+
+
+    public static String prettyFormat(String input, int indent) {
+        try {
+            Source xmlInput = new StreamSource(new StringReader(input));
+            StringWriter stringWriter = new StringWriter();
+            StreamResult xmlOutput = new StreamResult(stringWriter);
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            transformerFactory.setAttribute("indent-number", indent);
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.transform(xmlInput, xmlOutput);
+            return xmlOutput.getWriter().toString();
+        } catch (Exception e) {
+            throw new RuntimeException(e); // simple exception handling, please review it
+        }
+    }
+
+    public static String prettyFormat(String input) {
+        return prettyFormat(input, 2);
+    }
+
+    public static void printXMLStr(String input){
+        System.out.println();
+        System.out.println("========================");
+        System.out.println(prettyFormat(input));
     }
 }

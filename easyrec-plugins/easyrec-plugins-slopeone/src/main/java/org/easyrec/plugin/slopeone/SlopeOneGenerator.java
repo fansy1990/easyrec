@@ -54,7 +54,7 @@ import java.util.Set;
 public class SlopeOneGenerator extends GeneratorPluginSupport<SlopeOneConfiguration, SlopeOneStats> implements RunConditionEnabled {
     public static final String DISPLAY_NAME = "SlopeOne";
     public static final Version VERSION = new Version("1.00");
-    public static final URI ID = URI.create("http://www.easyrec.org/plugins/slopeone");
+    public static final URI ID = URI.create("http://localhost:8080/plugins/slopeone");
 
     private static final Log logger = LogFactory.getLog(SlopeOneGenerator.class);
 

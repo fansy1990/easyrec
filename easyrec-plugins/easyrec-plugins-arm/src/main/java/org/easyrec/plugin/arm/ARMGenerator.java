@@ -46,7 +46,7 @@ public class ARMGenerator extends GeneratorPluginSupport<ARMConfiguration, ARMSt
 
     public static final String DISPLAY_NAME = "ARM";
     public static final Version VERSION = new Version("1.00");
-    public static final URI ID = URI.create("http://www.easyrec.org/plugins/ARM");
+    public static final URI ID = URI.create("http://localhost:8080/plugins/ARM");
 
     private static final Log logger = LogFactory.getLog(ARMGenerator.class);
 

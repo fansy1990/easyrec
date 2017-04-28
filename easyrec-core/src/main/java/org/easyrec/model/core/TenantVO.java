@@ -42,7 +42,7 @@ public class TenantVO implements Serializable {
     public static final String DEFAULT_ITEMTYPE = "ITEM";
     public static final Integer DEFAULT_RATING_RANGE_MIN = 1;
     public static final Integer DEFAULT_RATING_RANGE_MAX = 10;
-    public static final Double DEFAULT_RATING_RANGE_NEUTRAL = 5.5;
+    public static final Double DEFAULT_RATING_RANGE_NEUTRAL = 1.5;
 
     ////////////////////////////////////////////////////////////////////////
     // members

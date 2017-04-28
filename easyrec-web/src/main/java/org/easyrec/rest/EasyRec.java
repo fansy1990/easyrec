@@ -427,7 +427,8 @@ public class EasyRec {
                         messages.add(MSG.MISSING_ACTION_VALUE);
                     } else {
                         try {
-                            actValue = Integer.valueOf(actionValue);
+                            // TODO 是否需要改变rating的类型为Float？
+                            actValue = (int)(float)Float.valueOf(actionValue);
                         } catch (Exception e) {
                             messages.add(MSG.ITEM_INVALID_RATING_VALUE);
                         }
