@@ -672,7 +672,7 @@ public class ActionDAOMysqlImpl extends
             args.add(numberOfLastActionsConsidered);
             argt.add(Types.INTEGER);
         }
-
+        logger.info("query:"+query.toString());
         return getJdbcTemplate().query(query.toString(), args.toArray(), Ints.toArray(argt), itemVORowMapper);
     }
 
