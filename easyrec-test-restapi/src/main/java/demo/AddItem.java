@@ -33,10 +33,11 @@ public class AddItem {
      * 107          107Item     /item/107                               ITEM
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         String url = Utils.getServer() +"/api/1.1/importitem";
         for(Item item :getItems()) {
             Map<String, String> params = Utils.item2Map(item);
+            Thread.sleep(1500);
             String result = HttpToolkit.doGet(url, params);
             System.out.println("result:" + result);
         }

@@ -45,7 +45,7 @@ public class RecExample {
         params.put("userid",userid);
         params.put("requesteditemtype","ITEM");
         params.put("sessionid",Utils.getSessionId(userid));
-        params.put("actiontype","RATE");
+        params.put("actiontype","VIEW");
         String result = HttpToolkit.doGet(url, params);
 
         Utils.printXMLStr( result);
