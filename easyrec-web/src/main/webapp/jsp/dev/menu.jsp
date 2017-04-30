@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -21,30 +23,30 @@
 <div class="menu_admin">
     <div style="position:absolute; left:13px; top:25px; padding: 10px;">
         <a href="${webappPath}/home">
-            <span class="logo">easyrec :: Administration</span>
+            <span class="logo">easyrec :: 管理员</span>
         </a>
     </div>
 
     <div id="signInMenu" <c:if test="${!signedIn}">style="display:none;"</c:if>>
         ${signedInOperatorId} |
-        <a id="signin" onclick="signoutUser();" href="#">Sign Out</a>
+        <a id="signin" onclick="signoutUser();" href="#">注销</a>
         &nbsp;&bull;&nbsp;
-        <a id="register" href="${webappPath}/updateform">Update Account</a>
+        <a id="register" href="${webappPath}/updateform">更新账户</a>
         <c:if test="${isDeveloper}">
-            &nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&nbsp;<a href="${webappPath}/easyrec/tenant?menu=x&tenantId=${tenantId}&operatorId=${operatorId}">Management</a>
+            &nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&nbsp;<a href="${webappPath}/easyrec/tenant?menu=x&tenantId=${tenantId}&operatorId=${operatorId}">管理</a>
         </c:if>
     </div>
 
     <div align="right" style="padding-top: 20px;padding-right: 17px;">
-        <a class="menu_admin" href="viewalltenants?tenantId=${tenantId}&operatorId=${operatorId}">Tenants</a>
-        | <a class="menu_admin" href="viewoperators?tenantId=${tenantId}&operatorId=${operatorId}">Operators</a>
-        | <a class="menu_admin" href="jamonreport?tenantId=${tenantId}&operatorId=${operatorId}">Performance</a>
-        | <a class="menu_admin" href="viewpluginlogs?tenantId=${tenantId}&operatorId=${operatorId}">Plugin Logs</a>
+        <a class="menu_admin" href="viewalltenants?tenantId=${tenantId}&operatorId=${operatorId}">租户</a>
+        | <a class="menu_admin" href="viewoperators?tenantId=${tenantId}&operatorId=${operatorId}">操作者</a>
+        | <a class="menu_admin" href="jamonreport?tenantId=${tenantId}&operatorId=${operatorId}">性能</a>
+        | <a class="menu_admin" href="viewpluginlogs?tenantId=${tenantId}&operatorId=${operatorId}">插件日志</a>
         <!--
              | <a class="menu_admin" href="viewruledemo?tenantId=${tenantId}&operatorId=${operatorId}">Rule Demo</a>
          -->
-        | <a class="menu_admin" href="plugins?tenantId=${tenantId}&operatorId=${operatorId}">Plugins</a>
-        | <a class="menu_admin" href="home?tenantId=${tenantId}&operatorId=${operatorId}">Info</a>
+        | <a class="menu_admin" href="plugins?tenantId=${tenantId}&operatorId=${operatorId}">插件</a>
+        | <a class="menu_admin" href="home?tenantId=${tenantId}&operatorId=${operatorId}">信息</a>
     </div>
 
 </div>

@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 
 <script src="js/register.js" type="text/javascript"></script>
 <div class="upperbody">
@@ -8,7 +10,7 @@
             <table>
                 <tr>
                     <td style="padding-right: 20px;">
-                        <span class="headlineBig">Update Successful</span>
+                        <span class="headlineBig">更新成功</span>
                     </td>
                     <td>
                         <img alt="success" src="img/success.gif">
@@ -18,38 +20,38 @@
             <br/>
         </div>
         <form id="updateOperator" action="">
-            <span class="headlineBig">Update your Account "${operator.operatorId}"</span><br/><br/>
+            <span class="headlineBig">更新您的账户 "${operator.operatorId}"</span><br/><br/>
             <table border="0" cellspacing="0" cellpadding="0">
                 <tr class="registeroperator">
-                    <td>First Name</td>
+                    <td>名字</td>
                     <td><input value="${operator.firstName}" id="firstName" name="firstName" type="text" size="40"/>
                     </td>
                     <td class="red" id="fieldStatus-firstName"></td>
                 </tr>
                 <tr class="registeroperator">
-                    <td>Last Name</td>
+                    <td>姓氏</td>
                     <td><input value="${operator.lastName}" id="lastName" name="lastName" type="text" size="40"/></td>
                     <td class="red" id="fieldStatus-lastName"></td>
                 </tr>
                 <tr class="registeroperator">
-                    <td>eMail</td>
+                    <td>邮箱</td>
                     <td><input value="${operator.email}" id="email" name="email" type="text" size="40"/></td>
                     <td class="red" id="fieldStatus-email"></td>
                 </tr>
                 <tr class="registeroperator">
-                    <td>Phone</td>
+                    <td>电话</td>
                     <td><input value="${operator.phone}" id="phone" name="phone" type="text" size="40"/>&nbsp;(optional)
                     </td>
                     <td></td>
                 </tr>
                 <tr class="registeroperator">
-                    <td>Company Name&nbsp;</td>
+                    <td>公司名称&nbsp;</td>
                     <td><input value="${operator.company}" id="company" name="company" type="text" size="40"/>&nbsp;(optional)
                     </td>
                     <td></td>
                 </tr>
                 <tr class="registeroperator">
-                    <td>Address</td>
+                    <td>地址</td>
                     <td><input value="${operator.address}" id="address" name="address" type="text" size="40"/>&nbsp;(optional)
                     </td>
                     <td></td>

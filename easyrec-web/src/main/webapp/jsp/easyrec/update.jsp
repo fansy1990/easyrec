@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -25,10 +27,10 @@
 <div class="appendbody" style="min-height: 400px;">
     <jsp:include page="menu.jsp"/>
 
-    <span class="headlineBig">Edit '${tenant.stringId}'</span>
+    <span class="headlineBig">编辑 '${tenant.stringId}'</span>
 
-    <p>
-        Here you can edit the URL and description of your <easyrec:wikiLink name="tenant"/>.
+    <p>在这里您可以编辑URL和对您的
+        <easyrec:wikiLink name="租户"/>的描述。
     </p>
 
     <div id="createTenantForm" class="contentContainer">
@@ -36,24 +38,20 @@
         <form id="registerOperator" action="" onsubmit="javascript:return false;">
             <label for="url">URL:</label>
 
-            <p>
-                Enter the URL of your website here. The easyrec service will automatically
-                add this URL to relative URLs you send via the API calls. You will be able
-                to edit this value later in the tenant configuration.
+            <p>在此处输入您的网站的URL。easyrec服务将自动将此URL添加到通过API调用发送的相对URL中。
+                您稍后可以在租户配置中编辑此值。
+
             </p>
 
-            <p>
-                If you send absolute item URLs via the API, this setting does not affect the URLs stored for each
-                item and it will be harder to move to a different domain. Use relative URLs for your items unless
-                you have a good reason not to.
+            <p>如果您通过API发送项目的绝对URL，此设置不会影响为每个项目存储的URL，并且更难移动到其他领域。
+                如果没有很好的理由，建议您使用项目的相对URL。
             </p>
             <input id="url" name="url" type="text" size="40" value="${tenant.url}"/>
+            <br/>
+            <label for="easyrec_description">描述:</label>
 
-            <label for="easyrec_description">Description:</label>
+            <p> 提供您的租户的可选描述(最多250个字符)。您稍后可以在租户配置中编辑此值。
 
-            <p>
-                Provide an optional description of your tenant (max 250 chars). You will be able
-                to edit this value later in the tenant configuration.
             </p>
 
             <div id="charCountInfo">
@@ -61,7 +59,7 @@
             </div>
             <textarea id="easyrec_description" name="easyrec_description" type="text">${tenant.description}</textarea>
 
-            <a id="createTenantSubmit" onclick="updateTenant('${operatorId}', '${tenant.stringId}')" href="#" class="button--filled easyrecblue">Update
+            <a id="createTenantSubmit" onclick="updateTenant('${operatorId}', '${tenant.stringId}')" href="#" class="button--filled easyrecblue">更新
                 <!--<img alt="update" src="${webappPath}/img/button_update.png"/>-->
             </a>
         </form>
@@ -74,12 +72,12 @@
         var text = $('#' + textid).val();
         var textlength = text.length;
         if (textlength > limit) {
-            $('#' + infodiv).html('You cannot write more then ' + limit + ' characters!');
+            $('#' + infodiv).html('您不能超过 ' + limit + ' 个字符!');
             $('#' + textid).val(text.substr(0, limit));
             return false;
         }
         else {
-            $('#' + infodiv).html('You have ' + (limit - textlength) + ' characters left.');
+            $('#' + infodiv).html('您还剩余 ' + (limit - textlength) + ' 个字符。');
             return true;
         }
     }
@@ -89,7 +87,7 @@
             limitChars('easyrec_description', 250, 'charCountInfo');
         })
         var textlength = $('#easyrec_description').val().length;
-        $('#charCountInfo').html('You have ' + (250 - textlength) + ' characters left.');
+        $('#charCountInfo').html('您还剩余 ' + (250 - textlength) + '个字符。');
     });
 </script>
 

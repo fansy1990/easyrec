@@ -1,4 +1,6 @@
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2015 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -34,11 +36,11 @@
         function ($scope) {
             
             $scope.templates = [
-                {name: 'API Documentation',
+                {name: 'API 文档',
                 url: 'apidoc'},
-                {name: 'Test the API',
+                {name: '测试 API',
                 url: '${webappPath}/apitest?operatorId=${operatorId}&tenantId=${tenantId}'},
-                {name: 'Test the Profile API',
+                {name: '测试API配置',
                 url: '${webappPath}/apitestprofile?operatorId=${operatorId}&tenantId=${tenantId}'}
             ];
             
@@ -656,7 +658,7 @@
 </script>
 <div ng-app="easyrec">
     <div class="appendbody" ng-controller="MenuController">
-        <h1>Recommendation API</h1>
+        <h1>推荐API</h1>
 
         <div ng-repeat="template in templates" style="display: inline-block" ng-cloak>
             <a ng-if="active !== template" href="javascript:void(0)" ng-click="setActive($index)" style="clear:right">
@@ -673,25 +675,38 @@
 
 <script type="text/ng-template" id="apidoc" >
     <p>
-        We provide full access to easyrec's functionality through a <a href="https://sourceforge.net/p/easyrec/wiki/API/" target="_blank">REST API</a>.
-        Recommendations are returned in XML or JSON notation. <br/>
-        We also povide an AngularJS service that covers all API functions. You can find more details about using it at the <a href="https://sourceforge.net/p/easyrec/wiki/API/#angularjs-service" target="_blank">AngularJS service page</a> of our wiki.<br/>
-        <b>Legacy:</b> You can also include a small snippet of <easyrec:wikiLink name="javascript code" pageName="JavaScript_API_v0.98"/> in your website to get
-        recommendations.<br/>
-        To get started with easyrec we recommend to read the <a href="https://sourceforge.net/p/easyrec/wiki/get_started/" target="_blank"> getting started guide.</a>
-        and if you are completely lost feel free to ask us at the <a href="https://sourceforge.net/p/easyrec/forum/" target="_blank">forums</a>.
+
+        我们通过
+        <a href="https://sourceforge.net/p/easyrec/wiki/API/" target="_blank">REST API</a>
+        给您提供easyrec的全部服务。
+        推荐结果会以XML或者JSON的形式返回。
+         <br/>
+        我们也提供AngularJS服务，它包含了所有的API功能。
+        您可以在我们的维基百科的
+         <a href="https://sourceforge.net/p/easyrec/wiki/API/#angularjs-service" target="_blank">AngularJS 服务页面</a> 找到关于使用
+        它的更多细节。<br/>
+        <b>另外:</b>
+        您可以在您的网站中添加一小段
+        <easyrec:wikiLink name="javascript 代码" pageName="JavaScript_API_v0.98"/>
+        来获得推荐<br/>
+        我们建议您阅读
+        <a href="https://sourceforge.net/p/easyrec/wiki/get_started/" target="_blank"> 入门指导</a>
+        来开启easyrec之旅。
+        如果您感觉到茫然不知所措，可以在我们的
+        <a href="https://sourceforge.net/p/easyrec/forum/" target="_blank">论坛</a>
+        向我们提问。
     </p>
 
     <br/>
     <table width="100%">
         <tr>
-            <td colspan="2"><span class="headline">Actions</span>
+            <td colspan="2"><span class="headline">行为操作</span>
                 <hr>
             </td>
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                view
+                查看
             </td>
             <td style="width:200px;height:40px;">
                 <a target="_blank" href="http://sourceforge.net/p/easyrec/wiki/ActionAPI/#view">
@@ -705,7 +720,7 @@
         </tr>
         <tr>
             <td>
-                buy
+                购买
             </td>
             <td>
                 <a target="_blank" href="http://sourceforge.net/p/easyrec/wiki/ActionAPI/#buy">
@@ -719,7 +734,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                rate
+                评分
             </td>
             <td>
                 <a target="_blank" href="http://sourceforge.net/p/easyrec/wiki/ActionAPI/#rate">
@@ -733,7 +748,7 @@
         </tr>
         <tr>
             <td>
-                sendaction
+                发送操作
             </td>
             <td>
                 <a target="_blank" href="http://sourceforge.net/p/easyrec/wiki/ActionAPI/#sendaction">
@@ -747,7 +762,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                track
+                追踪
             </td>
             <td>
                 <a target="_blank" href="http://sourceforge.net/p/easyrec/wiki/ActionAPI/#track">
@@ -761,13 +776,13 @@
 
     <table width="100%">
         <tr>
-            <td colspan="2"><span class="headline">Recommendations</span>
+            <td colspan="2"><span class="headline">推荐</span>
                 <hr>
             </td>
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
-            <td>
-                other users also viewed
+            <td>别的用户也查看了
+
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -781,8 +796,7 @@
             </td>
         </tr>
         <tr>
-            <td>
-                other users also bought
+            <td>别的用户也购买了
             </td>
             <td>
                 <a target="_blank"
@@ -796,8 +810,7 @@
             </td>
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
-            <td>
-                items rated good by other users
+            <td>被其他用户评分很高的项目
             </td>
             <td>
                 <a target="_blank"
@@ -812,7 +825,7 @@
         </tr>
         <tr>
             <td>
-                recommendations for user
+                给用户的推荐
             </td>
             <td>
                 <a target="_blank"
@@ -827,7 +840,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                related items
+                相关的项目
             </td>
             <td>
                 <a target="_blank"
@@ -842,7 +855,7 @@
         </tr>
         <tr>
             <td>
-                action history for user
+                用户的行为历史
             </td>
             <td>
                 <a target="_blank"
@@ -861,13 +874,13 @@
 
     <table width="100%">
         <tr>
-            <td colspan="2"><span class="headline">Community Rankings</span>
+            <td colspan="2"><span class="headline">邻居排名</span>
                 <hr>
             </td>
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                most viewed items
+                被查看最多次的项目
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -882,7 +895,7 @@
         </tr>
         <tr>
             <td>
-                most bought items
+                被购买最多的项目
             </td>
             <td>
                 <a target="_blank"
@@ -897,7 +910,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                most rated items
+                被评分最多次的项目
             </td>
             <td>
                 <a target="_blank"
@@ -912,7 +925,8 @@
         </tr>
         <tr>
             <td>
-                best rated items
+                被评分最高的项目
+
             </td>
             <td>
                 <a target="_blank"
@@ -927,7 +941,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                worst rated items
+                被评分最低的项目
             </td>
             <td>
                 <a target="_blank"
@@ -946,13 +960,13 @@
 
     <table width="100%">
         <tr>
-            <td colspan="2"><span class="headline">Cluster</span>
+            <td colspan="2"><span class="headline">分组</span>
                 <hr>
             </td>
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                clusters
+              分组
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -968,7 +982,8 @@
 
         <tr>
             <td>
-                items of cluster
+                同分组的项目
+
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -984,7 +999,8 @@
 
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                create cluster
+                创建分组
+
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -999,13 +1015,13 @@
 
     <table width="100%">
         <tr>
-            <td colspan="2"><span class="headline">Import API & other functions</span>
+            <td colspan="2"><span class="headline">导入API & 其他功能</span>
                 <hr>
             </td>
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                Import rule
+                导入规则
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -1016,7 +1032,7 @@
         </tr>
         <tr>
             <td>
-                Import/update item
+                导入/更新项目
             </td>
             <td>
                 <a target="_blank"
@@ -1027,7 +1043,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                set item active
+                激活项目
             </td>
             <td>
                 <a target="_blank"
@@ -1038,7 +1054,7 @@
         </tr>
         <tr>
             <td>
-                item types
+                项目类型
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -1053,7 +1069,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                add itemtype
+               添加项目类型
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -1064,7 +1080,7 @@
         </tr>
         <tr>
             <td>
-                delete itemtype
+                删除项目类型
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -1078,13 +1094,13 @@
     <br/>
     <table width="100%">
         <tr>
-            <td colspan="2"><span class="headline">Profile API</span>
+            <td colspan="2"><span class="headline">API配置</span>
                 <hr>
             </td>
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                Store
+                存储
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -1095,7 +1111,7 @@
         </tr>
         <tr>
             <td>
-                Store item with profile
+                存储带有资料的项目
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -1106,7 +1122,7 @@
         </tr>
         <tr  style="background-color: rgb(239, 239, 239);">
             <td>
-                Delete
+                删除
             </td>
             <td>
                 <a target="_blank"
@@ -1117,7 +1133,7 @@
         </tr>
         <tr>
             <td>
-                Field Delete
+                字段删除
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -1128,7 +1144,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                Load
+                加载
             </td>
             <td style="width:200px;">
                 <a target="_blank"
@@ -1139,7 +1155,7 @@
         </tr>
         <tr>
             <td>
-                Field Load
+               字段加载
             </td>
             <td>
                 <a target="_blank"
@@ -1150,7 +1166,7 @@
         </tr>
         <tr style="background-color: rgb(239, 239, 239);">
             <td>
-                Field Store
+                字段存储
             </td>
             <td>
                 <a target="_blank"
@@ -1161,7 +1177,7 @@
         </tr>
         <tr>
             <td>
-                Field Push
+               字段添加
             </td>
             <td>
                 <a target="_blank"

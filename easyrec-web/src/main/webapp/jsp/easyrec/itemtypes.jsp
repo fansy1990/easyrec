@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2011 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -45,25 +47,25 @@
 </script>
 
 <div>
-    <h2>Item Type Manager</h2>
+    <h2>项目类型管理器</h2>
 
-    <p>
-        Use the item type manager to create <a href="https://sourceforge.net/p/easyrec/wiki/Item%20Types/" target="_blank">Item types</a>.
-        Item types are the main categories of your items, e.g. Books, Music or Movies.
-        After creating an item type you are ready to use it in API calls.
+    <p>使用项目类型管理器去创建<a href="https://sourceforge.net/p/easyrec/wiki/Item%20Types/" target="_blank">项目类型</a>.
+        项目类型是指您的项目的主要类别，例如书、音乐或电影。
+        创建一个项目类型之后您就可以在API请求时调用它。
+
     </p>
 
     <p>
-        (Clusters can be managed in the
-        <a href="${webappPath}/tenant/clustermanager?tenantId=${tenantId}&operatorId=${operatorId}">Cluster Manager</a>
-        and describe custom collections of items. Use it to create subcategories of item types
-        (like "Pop", "Rock", "Alternative" as subcategories of Music items) or to create special recommendations like
-        "Christmas" or "Spring Collection".)
+        (分组可以在
+        <a href="${webappPath}/tenant/clustermanager?tenantId=${tenantId}&operatorId=${operatorId}">分组管理器</a>
+        中被管理，并且描述项目的自定义集合。
+        使用它去创建项目类型的子类别(例如“流行”,“摇滚”，“另类”是音乐项目的子类别)，或者产生特殊的推荐例如“圣诞节”或者“春季系列”)。
     </p>
 
 
     <div class="info">
-        <b>Note:</b> Once an itemtype has been created it cannot be removed!
+        <b>注意:</b>
+        一旦一个项目类别被创建后就不能再被移除！
     </div>
 
     <c:if test="${error!= null}">
@@ -72,25 +74,23 @@
 
     <br>
 
-    <h3>Item Types for ${tenantId}</h3>
+    <h3>${tenantId}的项目类别</h3>
     <a href="javascript:void(0)" onclick="showCreateNewItemTypeForm()">
         <img src="${webappPath}/img/cluster_manager_plus.png"/>
-        add new Item Type
+       添加新的项目类别
     </a>
 
     <display:table name="itemTypes" class="tableData" id="row" pagesize="0">
-        <display:column title="Item Type Name" sortable="false">
+        <display:column title="项目类型名" sortable="false">
             ${row}
         </display:column>
     </display:table>
 
 
     <div id="createNewItemTypeForm" style="display:none;">
-        <h1>Create a new item type</h1>
+        <h1>创建一个新的项目类别</h1>
 
-        <p>
-            Here you can create a new item type for your tenant. After creating it here you are ready to
-            use it in API calls.
+        <p>在这里你可以为你的租户创建一个新的项目类型。在这创建之后您就可以在API调用时使用。
         </p>
 
         <div>
@@ -98,13 +98,13 @@
                 <input type="hidden" name="tenantId" value="${tenantId}"/>
                 <input type="hidden" name="operatorId" value="${operatorId}"/>
 
-                <label for="itemTypeName"> Enter the name of the new item type </label>
+                <label for="itemTypeName">输入新的项目类型名 </label>
                 <input type="text" id="itemTypeName" name="itemTypeName"/>
                 
                 <br>
 
                 <input type="submit" class="button--filled easyrecblue" style="font-family: Arial" id="submitSearch" name="submit"
-                   value="Create"/>
+                   value="创建"/>
             </form>
         </div>
     </div>

@@ -3,6 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="esapi" uri="/WEB-INF/esapi.tld" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -34,41 +36,40 @@
 <div id="itemTabs${detailBoxUniqueId}" class="itemDetailTabContainer">
     <ul>
         <c:if test="${editEnabled}">
-            <li><a href="#editItem${detailBoxUniqueId}"><span>Edit</span></a></li>
+            <li><a href="#editItem${detailBoxUniqueId}"><span>编辑</span></a></li>
         </c:if>
-        <li><a href="#viewItem${detailBoxUniqueId}"><span>Details</span></a></li>
+        <li><a href="#viewItem${detailBoxUniqueId}"><span>详情</span></a></li>
         <li>
-            <a href="${webappPath}/tenant/rulestoitem?operatorId=${operatorId}&tenantId=${tenantId}&itemId=${item.id}"><span>Rules</span></a>
+            <a href="${webappPath}/tenant/rulestoitem?operatorId=${operatorId}&tenantId=${tenantId}&itemId=${item.id}"><span>规则</span></a>
         </li>
         <li>
-            <a href="${webappPath}/item/viewitemstatistics?operatorId=${operatorId}&tenantId=${tenantId}&itemId=${item.id}"><span>Statistics</span></a>
+            <a href="${webappPath}/item/viewitemstatistics?operatorId=${operatorId}&tenantId=${tenantId}&itemId=${item.id}"><span>统计</span></a>
         </li>
     </ul>
 
     <c:if test="${editEnabled}">
         <div id="editItem${detailBoxUniqueId}">
             <div style="height:165px;">
-                <div>
-                    The url of the item can be relative or absolute. If you want to use an absolute url,
-                    the url may start with <strong>"http://"</strong> or <strong>"https://"</strong>.
-                    If you are using a relative url it will be concatenated with the current tenant url:
-                    <a href="${tenant.url}" target="_blank">${tenant.url}</a> If the tenant url is part
-                    of the item url, only the relative url will be displayed.
+                <div>项目的url可以是相对或者是绝对的。如果你想使用绝对url，那么url需要以
+                     <strong>"http://"</strong> 或者 <strong>"https://"</strong> 作为开头。
+                    如果你正在使用一个相对路径，那么它就需要和当前的租户url
+                    <a href="${tenant.url}" target="_blank">${tenant.url}</a>联系在一起。
+                    如果租户路径是项目路径的一部分，那么就只会显示相对路径。
                 </div>
                 <div class="success" style="display:none;">
 
                 </div>
             </div>
 
-            <label for="editItemDescription${item.id}">description</label>
+            <label for="editItemDescription${item.id}">描述</label>
             <input id="editItemDescription${item.id}" name="editItemDescription${item.id}" type="text"
                    value="${esapi:encodeForHTMLAttribute(item.description)}"/>
 
-            <label for="editItemUrl${item.id}">item url</label>
+            <label for="editItemUrl${item.id}">项目url</label>
             <input id="editItemUrl${item.id}" name="editItemUrl${item.id}" type="text"
                    value="${esapi:encodeForHTMLAttribute(item.relativeUrl)}"/>
 
-            <label for="editItemImageUrl${item.id}">item image url</label>
+            <label for="editItemImageUrl${item.id}">项目的图片url</label>
             <input id="editItemImageUrl${item.id}" name="editItemImageUrl${item.id}" type="text"
                    value="${esapi:encodeForHTMLAttribute(item.relativeImageUrl)}"/>
 
@@ -85,21 +86,21 @@
         </div>
 
         <p style="height:120px;">
-            Here you find some details about the selected item.
-            Use the Edit tab to modify the values.
+            这里您可以发现所选项目的一些详细信息。
+            使用编辑选项可以来修改这些值。
         </p>
 
         <dl>
             <dt>ID:</dt>
             <dd>${esapi:encodeForHTML(item.itemId)}</dd>
 
-            <dt>Type:</dt>
+            <dt>类型:</dt>
             <dd>${item.itemType}</dd>
 
-            <dt>Description:</dt>
+            <dt>描述:</dt>
             <dd id="itemDescription${item.id}">${esapi:encodeForHTML(item.description)}</dd>
 
-            <dt>Creation Date:</dt>
+            <dt>创建日期:</dt>
             <dd>${item.creationDate}</dd>
 
             <dt>URL:</dt>
@@ -109,17 +110,17 @@
                 </a>
             </dd>
 
-            <dt>Image URL:</dt>
+            <dt>图片 URL:</dt>
             <dd id="itemImageUrl${item.id}">
                 <a href="${esapi:encodeForHTMLAttribute(item.imageUrl)}" target="_blank">
                     ${esapi:encodeForHTML(item.imageUrl)}
                 </a>
             </dd>
 
-            <dt>Active:</dt>
+            <dt>激活:</dt>
             <dd id="itemActive">${item.active}</dd>
 
-            <dt>Clusters:</dt>
+            <dt>分组:</dt>
             <dd id="itemClusters">
                 <c:choose>
                     <c:when test="${clusters == null || fn:length(clusters) == 0}">
@@ -137,7 +138,7 @@
         </dl>
 
         <c:if test="${profile != null}">
-            <h1>Profile</h1>
+            <h1>配置</h1>
             <easyrec:profileRenderer profile="${profile}"/>
         </c:if>
 

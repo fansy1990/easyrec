@@ -1,17 +1,18 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <div class="appendbody">
-    <h1>Performance</h1>
+    <h1>性能</h1>
 
-    <p>
-        This section shows the computation time for
+    <p>这部分展示了
         <a href="${webappPath}/API">REST-API</a>
-        calls.
+        调用的计算时间。
     </p>
     ${outstr}
 </div>
 <script type="text/javascript">
     function jamonreset()
     {
-        confirm("You are about to reset the performance stats. Do you want to continue?", function ()
+        confirm("你将要重置性能统计数据，你要继续吗？", function ()
         {
             $.ajax({url:"${webappPath}/dev/jamonreset",
                     data: ({tenantId : "${tenantId}" , operatorId: "${operatorId}"}),

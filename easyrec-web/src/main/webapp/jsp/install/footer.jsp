@@ -1,3 +1,5 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <div class="footer">
     <div style="float:left;color:#888888;">
         <a href="https://sourceforge.net/p/easyrec/blog/" target="_blank">Blog</a> |

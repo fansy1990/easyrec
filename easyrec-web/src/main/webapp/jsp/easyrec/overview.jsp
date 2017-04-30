@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2011 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -23,60 +25,57 @@
 <!--[if IE]><script language="javascript" type="text/javascript" src="${webappPath}/js/jquery/excanvas.min.js"></script><![endif]-->
 
 
-<span class="headlineBig">Tenant Management</span><br/>
+<span class="headlineBig">租户管理</span><br/>
 
 <p>
-    This chart shows the number of user actions per day for the selected tenant. Use the drop down menu to select the time
-    range of the chart. For advanced statistics about your tenant check 'statistics' in the menu above.
-    The <a href="javascript:followingSteps('${tenant.stringId}')">integration information</a> box bundles all you need to integrate easyrec into your website.
+    这个图表显示了所选租户每天的用户行为数。使用下拉菜单可以选择图表的时间段
+    。 想要了解你的租户的更多数据信息，可以通过点击上方“统计”菜单查看。
+     <a href="javascript:followingSteps('${tenant.stringId}')">集成信息</a> 框把所有你需要的东西捆绑在一起，进而把easyrec集成到你的网站中。
 </p>
 
 <c:if test="${displayingDefaultTenant}">
     <div class="info">
-        <b>Note:</b> This is your automatically generated sandbox tenant. Use this tenant to play around with easyrec. Once you
-        understand the basic principles of easyrec, create your own tenant and integrate it into your website.
+        <b>注意:</b> 这是为你自动生成的沙箱租户。 使用这个租户你可以试玩easyrec。一旦你理解了easyrec的基本原理， 你可以创建自己的租户并将其整合到你的网站.
+        你可以使用下面的链接在你的沙箱租户中产生行为：
 
-        You can use the following links to generate actions on your sandbox tenant:
+        <a href="javascript:simulateViewAction()">产生查看行为</a> |
+        <a href="javascript:simulateBuyAction()">产生购买行为</a> |
+        <a href="javascript:simulateRateAction()">产生评分行为</a>.
 
-        <a href="javascript:simulateViewAction()">generate a view action</a> |
-        <a href="javascript:simulateBuyAction()">generate a buy action</a> |
-        <a href="javascript:simulateRateAction()">generate a rate action</a>.
-
-        The <a href="https://sourceforge.net/p/easyrec/wiki/get_started/" target="_blank"> getting started guide</a> gives you a quick overview on how
-        to set up a tenant.
+        <a href="https://sourceforge.net/p/easyrec/wiki/get_started/" target="_blank"> 入门指南</a> 为你提供了如何设置租户的大致概述。
 
     </div>
 </c:if>
 
 <dl>
-    <dt>tenant ID:</dt>
+    <dt>租户ID:</dt>
     <dd>${tenant.stringId}</dd>
 
-    <dt>creation date:</dt>
+    <dt>创建日期:</dt>
     <dd> ${tenant.creationDate}</dd>
 
-    <dt>website of the tenant:</dt>
+    <dt>租户网站:</dt>
     <dd><a target="_blank" href="${tenant.url}">${tenant.url}</a></dd>
 </dl>
 
-<h3>Description</h3>
+<h3>描述</h3>
 <c:if test="${tenant.description!=''}">
     <p style="overflow:auto;width:700px">${tenant.description}</p>
 </c:if>
 
 
 <br>
-Showing
+展示
 <select
         id="actionType"
         name="actionType"
         onchange="javascript:updateTenantFlot(${tenant.id})">
-    <option value="">all actions</option>
-    <option value="VIEW">view actions</option>
-    <option value="BUY">buy actions</option>
-    <option value="RATE">rate actions</option>
-    <option value="CLICKS_ON_RECS">clicks on recommendations</option>
-    <option value="CLICKS_ON_CHARTS">clicks on rankings</option>
+    <option value="">所有行为</option>
+    <option value="VIEW">查看行为</option>
+    <option value="BUY">购买行为</option>
+    <option value="RATE">评分行为</option>
+    <option value="CLICKS_ON_RECS">点击推荐</option>
+    <option value="CLICKS_ON_CHARTS">点击排序</option>
 </select>
 in
 <select
@@ -84,44 +83,44 @@ in
         name="month"
         onchange="javascript:updateTenantFlot(${tenant.id})">
     <option
-            <c:if test="${currentMonthName=='January'}">selected="selected"</c:if> value="0">January
+            <c:if test="${currentMonthName=='January'}">selected="selected"</c:if> value="0">一月
     </option>
     <option
             <c:if test="${currentMonthName=='February'}">selected="selected"</c:if> value="1">
-        February
+        二月
     </option>
     <option
-            <c:if test="${currentMonthName=='March'}">selected="selected"</c:if> value="2">March
+            <c:if test="${currentMonthName=='March'}">selected="selected"</c:if> value="2">三月
     </option>
     <option
-            <c:if test="${currentMonthName=='April'}">selected="selected"</c:if> value="3">April
+            <c:if test="${currentMonthName=='April'}">selected="selected"</c:if> value="3">四月
     </option>
     <option
-            <c:if test="${currentMonthName=='May'}">selected="selected"</c:if> value="4">May
+            <c:if test="${currentMonthName=='May'}">selected="selected"</c:if> value="4">五月
     </option>
     <option
-            <c:if test="${currentMonthName=='June'}">selected="selected"</c:if> value="5">June
+            <c:if test="${currentMonthName=='June'}">selected="selected"</c:if> value="5">六月
     </option>
     <option
-            <c:if test="${currentMonthName=='July'}">selected="selected"</c:if> value="6">July
+            <c:if test="${currentMonthName=='July'}">selected="selected"</c:if> value="6">七月
     </option>
     <option
-            <c:if test="${currentMonthName=='August'}">selected="selected"</c:if> value="7">August
+            <c:if test="${currentMonthName=='August'}">selected="selected"</c:if> value="7">八月
     </option>
     <option
             <c:if test="${currentMonthName=='September'}">selected="selected"</c:if> value="8">
-        September
+        九月
     </option>
     <option
-            <c:if test="${currentMonthName=='October'}">selected="selected"</c:if> value="9">October
+            <c:if test="${currentMonthName=='October'}">selected="selected"</c:if> value="9">十月
     </option>
     <option
             <c:if test="${currentMonthName=='November'}">selected="selected"</c:if> value="10">
-        November
+        十一月
     </option>
     <option
             <c:if test="${currentMonthName=='December'}">selected="selected"</c:if> value="11">
-        December
+        十二月
     </option>
 </select>
 <select

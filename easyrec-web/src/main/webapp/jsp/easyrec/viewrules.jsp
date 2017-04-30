@@ -3,9 +3,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="esapi" uri="/WEB-INF/esapi.tld" %>
-<p>
-    This view shows the rules for the currently selected item. Rules associate items with each other. They are
-    generated on a regular basis by rule generators.
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<p> 此视图显示当前所选项目的规则。规则将项目相互关联。它们是由规则生成器定期生成的。
 </p>
 
 <c:forEach var="current" items="${assocs}" varStatus="status">
@@ -16,7 +16,7 @@
             ${fn:replace(fn:toLowerCase(current.key), "_", " ")}&nbsp;with ( ${fn:length(current.value)} )
 
             <div style="float:right;">
-                assoc value
+               关联值
             </div>
 
         </div>

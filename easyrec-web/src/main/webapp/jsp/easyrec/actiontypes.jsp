@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2011 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -78,17 +80,18 @@
 </script>
 <div>
 
-    <h2>Action Type Manager</h2>
+    <h2>行为类型管理器</h2>
 
-    <p>
-        Use the action type manager to create <a href="https://sourceforge.net/p/easyrec/wiki/Action Types/" target="_blank">Action types</a>.
-        Action types are the types of your actions you send to easyrec.
-        After creating an actions type you are ready to use it in API calls.
+    <p>使用行为类型管理器去创建
+       <a href="https://sourceforge.net/p/easyrec/wiki/Action Types/" target="_blank">行为类型</a>。
+        行为类型是指您提供给easyrec的行为的所属类型。
+        创建行为类型之后您就可以在API调用时使用它。
+
     </p>
 
 
         <div class="info">
-            <b>Note:</b> Once an actiontype has been created it cannot be removed!
+            <b>注意:</b> 一旦行为类型被创建之后就不能再被移除！
         </div>
 
         <c:if test="${error!= null}">
@@ -97,34 +100,34 @@
 
         <br>
 
-        <h3>Action Types for ${tenantId}</h3>
+        <h3> ${tenantId}的行为类型</h3>
         <a href="javascript:void(0)" onclick="showCreateNewItemTypeForm()">
             <img src="${webappPath}/img/cluster_manager_plus.png"/>
-            add new Action Type
+            添加新的行为类型
         </a>
 
         <display:table name="actionTypes" class="tableData" id="row" pagesize="0">
-            <display:column title="Action Type Name" sortable="false">
+            <display:column title="行为类型名" sortable="false">
                 ${row.name}
             </display:column>
-            <display:column title="Has Value" sortable="false">
+            <display:column title="具有值" sortable="false">
                 ${row.hasValue}
             </display:column>
-            <display:column title="Weight" sortable="false">
+            <display:column title="权重" sortable="false">
                 ${row.weight}
             </display:column>
-            <display:column title="Action" sortable="false">
-                <a href="javascript:void(0);" onclick="showEditNewActionTypeForm(${row.id}, '${row.name}', ${row.hasValue}, ${row.weight})">Edit</a>
+            <display:column title="行为" sortable="false">
+                <a href="javascript:void(0);" onclick="showEditNewActionTypeForm(${row.id}, '${row.name}', ${row.hasValue}, ${row.weight})">编辑</a>
             </display:column>
         </display:table>
 
 
     <div id="createNewActionTypeForm" style="display:none;">
-        <h1>Create a new action type</h1>
+        <h1>创建新的行为类型
+            </h1>
 
         <p>
-            Here you can create a new action types for your tenant. After creating it here you are ready to
-            use it in API calls.
+            这里您可以为您的租户创建一个新的行为类型。在这创建之后您就可以在API调用时使用它。
         </p>
 
         <div>
@@ -132,23 +135,25 @@
                 <input type="hidden" name="tenantId" value="${tenantId}"/>
                 <input type="hidden" name="operatorId" value="${operatorId}"/>
 
-                <label for="actionTypeName"> Enter the name of the new action type </label>
+                <label for="actionTypeName"> 输入新的行为类型名
+                     </label>
                 <input type="text" id="actionTypeName" name="actionTypeName"/>
 
                 <br>
 
-                <label for="actionTypeHasValue"> Do you want to use action type values? </label>
-                <input type="checkbox" id="actionTypeHasValue" name="actionTypeHasValue" value="true"/> Yes
+                <label for="actionTypeHasValue"> 您想使用行为类型的值吗?
+                     </label>
+                <input type="checkbox" id="actionTypeHasValue" name="actionTypeHasValue" value="true"/> 是
 
                 <br>
                 
-                <label for="actionTypeWeight"> Here you can enter a custom weight for the action type that can be used for weighted calculations later on </label>
+                <label for="actionTypeWeight"> 在这里，您可以为稍后可用于加权计算的操作类型输入自定义权重 </label>
                 <input type="text" id="actionTypeWeight" name="actionTypeWeight" value="1"/>
 
                 <br>
 
                 <input type="submit" class="button--filled easyrecblue" style="font-family: Arial" id="submitActionType" name="submit"
-                   value="Create"/>
+                   value="创建"/>
             </form>
         </div>
     </div>

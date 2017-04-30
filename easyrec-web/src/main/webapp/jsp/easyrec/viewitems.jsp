@@ -4,6 +4,8 @@
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
 <%@ taglib prefix="esapi" uri="/WEB-INF/esapi.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2011 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -48,13 +50,11 @@
 <div class="appendbody">
     <jsp:include page="menu.jsp"/>
     <jsp:include page="menubar.jsp"/>
-    <span class="headlineBig">Items collected by "${tenantId}"</span>
+    <span class="headlineBig">通过 "${tenantId}"收集的项目</span>
     <br/>
 
-    <p>
-        The list below contains all items submitted to easyrec via actions sent from your website. You can view item
-        details
-        by clicking on the item description.
+    <p>下面的列表包含了由于你的网站行为提交到easyrec的所有项目。你可以通过点击项目描述查看项目细节。
+
     </p>
 
     <div class="contentContainer">
@@ -68,12 +68,12 @@
             <input type="hidden" name="d-16544-p" value="1"/>
 
             <p>
-                <label for="description">Description</label>
+                <label for="description">描述</label>
                 <input name="description" id="description" type="text" value="${description}" style="width:80%;"/>
                 <a href="javascript:void(0);"
                    onclick="toggleAdvancedSearch('#searchAdvanced');"
                    style="float:right;padding-top:4px;clear:right;">
-                    Advanced Search
+                    高级搜索
                 </a>
             </p>
 
@@ -81,38 +81,38 @@
                  <c:if test="${itemId == '' and fromCreationDate == '' and toCreationDate == '' and
                  fn:length(itemTypes) == 0 and isActivated == null}">style="display:none"</c:if>>
                 <p>
-                    <label for="itemId">Id</label>
+                    <label for="itemId">编号</label>
                     <input name="itemId" id="itemId" type="text" value="${itemId}"/>
                 </p>
 
                 <p>
-                    <label for="fromCreationDate">Creation Date (from/to)</label>
+                    <label for="fromCreationDate">创建日期 (从/到)</label>
                     <input name="fromCreationDate" id="fromCreationDate" type="text" value="${fromCreationDate}"/>
-                    <label for="toCreationDate" style="display:none">Creation Date (from/to)</label>
+                    <label for="toCreationDate" style="display:none">创建日期 (从/到)</label>
                     <input name="toCreationDate" id="toCreationDate" type="text" value="${toCreationDate}"/>
                 </p>
 
                 <p>
-                    <label for="isActivated">Activated</label>
-                    <span>Display</span>
+                    <label for="isActivated">激活</label>
+                    <span>展示</span>
                     <select id="isActivated" name="isActivated">
                         <option value="null" <c:if test="${isActivated == null}">selected="selected"</c:if>>
-                            all
+                            所有
                         </option>
                         <option value="true"
                                 <c:if test="${isActivated == 'true'}">selected="selected"</c:if>>
-                            only activated
+                            仅激活
                         </option>
                         <option value="false"
                                 <c:if test="${isActivated != null && isActivated != 'true'}">selected="selected"</c:if>>
-                            only deactivated
+                            仅未激活
                         </option>
                     </select>
-                    <span> items.</span>
+                    <span> 项目。</span>
                 </p>
 
                 <div>
-                    <label for="itemType">Item Type</label>
+                    <label for="itemType">项目类型 </label>
                 </div>
                 <%--suppress HtmlUnknownAttribute --%>
                 <ul id="itemType" name="itemTypes">
@@ -124,10 +124,10 @@
 
             <div style="float:left; clear:left;">
                 <p style="width:350px;">
-                    <label for="hasRules" style="display:inline;">Has Rules</label>
+                    <label for="hasRules" style="display:inline;">具有规则</label>
                     <input type="checkbox" id="hasRules" name="hasRules" style="width:14px;display:inline"
                            <c:if test="${hasRules == true}">checked="checked"</c:if>/>
-                    <label for="rulesOfType" style="display:inline">of type</label>
+                    <label for="rulesOfType" style="display:inline">类型为</label>
                     <select id="rulesOfType" name="rulesOfType"
                             <c:if test="${hasRules == false}">disabled="disabled"</c:if>>
                         <c:forEach items="${availableAssocTypes}" var="assocType">
@@ -139,7 +139,7 @@
             </div>
 
             <input type="submit" class="button--filled easyrecblue" style="font-family: Arial" id="submitSearch" name="submit"
-                   value="Search"/>
+                   value="查找"/>
         </form>
 
         <script type="text/javascript">
@@ -193,16 +193,16 @@
                        pagesize="${pageSize}" sort="external"
                        partialList="true" size="${totalCount}">
             <display:setProperty name="paging.banner.group_size" value="24"/>
-            <display:column title="Id" sortable="true">
+            <display:column title="编号" sortable="true">
                 ${esapi:encodeForHTML(row.itemId)}
             </display:column>
-            <display:column title="Description" sortable="true">
+            <display:column title="描述" sortable="true">
                 <a href="javascript:void(0);"
                    onclick="loadItem('${operatorId}','${tenantId}','${row.id}','${esapi:encodeForJavaScript(row.description)}', true, undefined);">
                         ${esapi:encodeForHTML(row.description)}
                 </a>
             </display:column>
-            <display:column title="Type" sortable="true">
+            <display:column title="类型" sortable="true">
                 ${esapi:encodeForHTML(row.itemType)}
             </display:column>
             <display:column style="width:120px;">     <%-- hint: the easyrec:absoluteUrl tag also does esapi encoding for the url!!!--%>
@@ -231,19 +231,19 @@
 
             </display:column>
         </display:table>
-        <h3>Legend</h3>
+        <h3>图例</h3>
         <table>
             <tr>
                 <td style="width:100px"><img alt="open item" title="open item in new tab" src="${webappPath}/img/button_globe.png"/></td>
-                <td>Navigate to the item in a new tab (uses stored item URL)</td>
+                <td>导航到新选项卡中的项目 (使用已存储项目链接)</td>
             </tr>
             <tr>
                 <td style="width:100px"><img alt="show rules" title="show the rules for an item" src="${webappPath}/img/button_rules.png"/></td>
-                <td>Show rules for an item</td>
+                <td>展示项目的规则</td>
             </tr>
             <tr>
                 <td style="width:100px"><img alt="deactivate" title="deactivate item" src="${webappPath}/img/button_deactivate.png"/></td>
-                <td>Toggle active flag for an item. Inactive items are not included in results of API calls</td>
+                <td>切换项目的活动标志，非活动项目不包括在API调用的结果中</td>
             </tr>
         </table>
 

@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -346,21 +348,22 @@ function rewriteClusterItemSorting(containerDiv) {
 <div class="appendbody">
     <jsp:include page="menu.jsp"/>
     <jsp:include page="menubar.jsp"/>
-    <h2>Cluster Manager</h2>
+    <h2>分组管理</h2>
 
     <p>
-        Use the <a href="https://sourceforge.net/p/easyrec/wiki/Cluster/" target="_blank">cluster manager</a> to create, delete, move and populate clusters.
-        You can use the clustering system to create recommendations based on your categories e.g. for special sales.
+        使用 <a href="https://sourceforge.net/p/easyrec/wiki/Cluster/" target="_blank">分组管理</a>
+        去创建、删除、移动、和填充分组。
+        您可以基于您的特殊商品类别使用分组系统去产生推荐。
     </p>
 
     <p>
-        Use the <a href="https://sourceforge.net/p/easyrec/wiki/ClusterAPI/" target="_blank">cluster API</a> to get recommendations based on the clusters here.
+        使用 <a href="https://sourceforge.net/p/easyrec/wiki/ClusterAPI/" target="_blank">分组 API</a>去获得基于分组的推荐。
     </p>
 
     <p>
-        If you want to import the content of a cluster you can
-        <a href="https://sourceforge.net/p/easyrec/wiki/Cluster/#csv-import" target="_blank">create a CSV file for the cluster upload</a>
-        and upload it here.
+        如果您想导入一个分组的内容，您可以
+        <a href="https://sourceforge.net/p/easyrec/wiki/Cluster/#csv-import" target="_blank">创建一个用于分组上传的CSV文件</a>
+       并将其上传到此处。
     </p>
 
 
@@ -368,14 +371,14 @@ function rewriteClusterItemSorting(containerDiv) {
         <span class="clusterManagerStartButton" style="margin-right: 50px;">
             <a href="javascript:void(0)" onclick="startClusterManager()">
                 <img alt="start the cluster manager" src="${webappPath}/img/cluster_manager.png"/>
-                <span>start the cluster manager</span>
+                <span>启动分组管理器</span>
             </a>
         </span>
         <span class="clusterManagerStartButton">
             <a href="javascript:void(0)" onclick="showImportForm()" style="clear:right">
                 <!-- image by Bdate Kaspar/Franziska Sponsel -->
                 <img alt="import clusters from CSV" src="${webappPath}/img/button_csv.png" style="margin-top: 81px"/>
-                <span>populate clusters from CSV</span>
+                <span>从CSV填充分组</span>
             </a>
         </span>
     </div>

@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="texta" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -28,19 +30,19 @@
             <div id="remotetenants">
                 <table width="100%">
                     <tr>
-                        <th>Id</th>
+                        <th>编号</th>
                         <th/>
                         <th/>
                         <th></th>
-                        <th>Tenant</th>
-                        <th>Description</th>
-                        <th title="total number of actions of the tenant">Actions</th>
-                        <th title="number of rules computed by the plugins">Rules</th>
+                        <th>租户</th>
+                        <th>描述</th>
+                        <th title="total number of actions of the tenant">操作</th>
+                        <th title="number of rules computed by the plugins">规则</th>
                         <th title="shows the next execution time of the plugins, if the scheduler is enabled">
-                            Scheduler
+                            调度器
                         </th>
-                        <th title="creation date of the tenant">Creation Date</th>
-                        <th>Management</th>
+                        <th title="creation date of the tenant">创建日期</th>
+                        <th>管理</th>
                         <th/>
                         <th/>
 
@@ -132,7 +134,7 @@
             </div>
         </c:when>
         <c:otherwise>
-            <p>There are no tenants for this operator.</p>
+            <p>当前操作者没有租户。</p>
         </c:otherwise>
     </c:choose>
 </div>

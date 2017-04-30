@@ -1,3 +1,5 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2011 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -36,11 +38,9 @@
     <jsp:include page="menu.jsp"/>
     <jsp:include page="menubar.jsp"/>
 
-    <h2>Type Manager</h2>
+    <h2>类型管理器</h2>
 
-    <p>
-        Use the type manager to create different types used within
-        your easyrec instance.
+    <p>使用类型管理器创建您的easyrec实例中使用的不同类型。
     </p>
 
     <div class="contentContainer">
@@ -48,17 +48,17 @@
             <ul>
                 <li>
                     <a href="${webappPath}/tenant/itemtypes?tenantId=${tenantId}&operatorId=${operatorId}">
-                        Item Types
+                        项目类型
                     </a>
                 </li>
                 <li>
                     <a href="${webappPath}/tenant/actiontypes?tenantId=${tenantId}&operatorId=${operatorId}">
-                        Action Types
+                        行为类型
                     </a>
                 </li>
                 <li>
-                    <a href="${webappPath}/tenant/assoctypes?tenantId=${tenantId}&operatorId=${operatorId}">Assoc
-                        Types
+                    <a href="${webappPath}/tenant/assoctypes?tenantId=${tenantId}&operatorId=${operatorId}">
+                        关联类型
                     </a>
                 </li>
             </ul>

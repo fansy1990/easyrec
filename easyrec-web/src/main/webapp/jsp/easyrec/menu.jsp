@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -20,12 +22,12 @@
   --%>
 
 <div class="leftsubmenu">
-    <span class="headline">Tenant Management</span>
+    <span class="headline">租户管理</span>
     <ul id="tenantMenu" class="subMenu">
         <c:if test="${operatorId==signedInOperatorId}">
             <li <c:if test="${create}">class="selectedTenant"</c:if>>
-                <a href="${webappPath}/easyrec/create?tenantId=${tenantId}&operatorId=${operatorId}">Create a new
-                    Tenant...</a>
+                <a href="${webappPath}/easyrec/create?tenantId=${tenantId}&operatorId=${operatorId}">创建一个新的租户
+                    ...</a>
             </li>
         </c:if>
         <c:forEach var="tenant" items="${tenants}">
@@ -53,7 +55,7 @@
         <table width="74%">
             <tr>
                 <td width="68%">
-                    <span class="headline">API Key</span>
+                    <span class="headline">API 密钥</span>
                     <img class="clickable" alt="help" src="${webappPath}/img/button_help.png"
                          onclick="$('#div_apikey_help').slideToggle('slow')"/>
                 </td>
@@ -81,7 +83,7 @@
         <table width="74%">
             <tr>
                 <td width="68%">
-                    <span class="headline">Token</span>
+                    <span class="headline">令牌</span>
                     <img class="clickable" alt="help" src="${webappPath}/img/button_help.png"
                          onclick="$('#div_token_help').slideToggle('slow')"/>
                 </td>
@@ -111,14 +113,14 @@
         <table width="74%">
             <tr>
                 <td width="68%">
-                    <span class="headline">Further reading</span>
+                    <span class="headline">进一步阅读</span>
                 </td>
             </tr>
         </table>
         <div style="padding-bottom: 10px;"></div>
         <ul class="subMenu">
-            <li><a href="https://sourceforge.net/p/easyrec/wiki/FAQ/" target="_blank">FAQ</a></li>
-            <li><a href="https://sourceforge.net/p/easyrec/wiki/Home/" target="_blank">Documentation</a></li>
+            <li><a href="https://sourceforge.net/p/easyrec/wiki/FAQ/" target="_blank">常见问题</a></li>
+            <li><a href="https://sourceforge.net/p/easyrec/wiki/Home/" target="_blank">文档</a></li>
         </ul>
 
         <c:if test="${heapsize<640}">

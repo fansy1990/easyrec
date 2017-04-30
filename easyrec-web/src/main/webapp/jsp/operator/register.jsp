@@ -1,24 +1,25 @@
 <script src="js/register.js" type="text/javascript"></script>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <div class="upperbody">
     <div id="registerSuccess" style="display: none">
         <table>
             <tr>
                 <td style="padding-top:15px">
-                    <span class="headlineBig">Registration successful</span><br/><br/>
+                    <span class="headlineBig">注册成功</span><br/><br/>
                 </td>
                 <td><img alt="success" src="img/success.gif"/></td>
             </tr>
         </table>
-        <p>
-            To activate your Account click on the activation
-            link that has been sent to your email address.
+        <p>请点击发送到您邮箱的激活链接来激活您的账户。
+
         </p>
         <br/>
 
     </div>
 
     <form id="registerOperator" action="">
-        <span class="headlineBig">Register a new Account</span><br/><br/>
+        <span class="headlineBig">注册新账户</span><br/><br/>
         <table border="0" cellspacing="0" cellpadding="0">
 
             <tr class="registeroperator">
@@ -27,53 +28,53 @@
                 <td class="red" id="register-error"></td>
             </tr>
             <tr class="registeroperator">
-                <td>User Name</td>
+                <td>用户名</td>
                 <td><input id="operatorId" onblur="checkOperatorId()" name="operatorId" type="text" size="40"/></td>
                 <td class="red" id="fieldStatus-operatorId"></td>
             </tr>
             <tr class="registeroperator">
-                <td>Password</td>
+                <td>密码</td>
                 <td><input id="password" name="password" type="password" size="40"/>&nbsp;(min. 5 chars)</td>
                 <td class="red" id="fieldStatus-password"></td>
             </tr>
             <tr class="registeroperator">
-                <td>Password Confirmation</td>
+                <td>确认密码</td>
                 <td><input id="passwordConfirm" name="passwordConfirm" type="password" size="40"/></td>
                 <td class="red" id="fieldStatus-passwordConfirm"></td>
             </tr>
             <tr class="registeroperator">
-                <td>First Name</td>
+                <td>名字</td>
                 <td><input id="firstName" name="firstName" type="text" size="40"/></td>
                 <td class="red" id="fieldStatus-firstName"></td>
             </tr>
             <tr class="registeroperator">
-                <td>Last Name</td>
+                <td>姓氏</td>
                 <td><input id="lastName" name="lastName" type="text" size="40"/></td>
                 <td class="red" id="fieldStatus-lastName"></td>
             </tr>
             <tr class="registeroperator">
-                <td>eMail</td>
+                <td>邮箱</td>
                 <td><input id="email" name="email" type="text" size="40"/></td>
                 <td class="red" id="fieldStatus-email"></td>
             </tr>
             <tr class="registeroperator">
-                <td>Phone</td>
+                <td>电话</td>
                 <td><input id="phone" name="phone" type="text" size="40"/>&nbsp;(optional)</td>
                 <td></td>
             </tr>
             <tr class="registeroperator">
-                <td>Company Name</td>
+                <td>公司名称</td>
                 <td><input id="company" name="company" type="text" size="40"/>&nbsp;(optional)</td>
                 <td></td>
             </tr>
             <tr class="registeroperator">
-                <td>Address</td>
+                <td>地址</td>
                 <td><input id="address" name="address" type="text" size="40"/>&nbsp;(optional)</td>
                 <td></td>
             </tr>
             <!--  TODO:DM AntiRobot: bild einbauen, wo mann text rauslesen muss und diesen dann in ein text feld eingeben -->
             <tr class="registeroperator">
-                <td>I agree to the Terms of Service</td>
+                <td>我同意服务条款</td>
                 <td colspan="2">
                     <input type="checkbox" id="tos" name="tos" value="y"/>
                 </td>

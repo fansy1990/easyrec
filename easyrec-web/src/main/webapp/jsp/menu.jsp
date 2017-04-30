@@ -34,13 +34,13 @@
             (as ${operatorId})
         </c:if>
         |
-        <a id="signin" onclick="signoutUser();" href="#">Sign Out</a>
+        <a id="signin" onclick="signoutUser();" href="#">注销</a>
         &nbsp;&bull;&nbsp;
         <a id="register" href="${webappPath}/updateform?<c:if
-            test="${tenantId!=null}">tenantId=${tenantId}&</c:if><c:if test="${operatorId!=null}">operatorId=${operatorId}</c:if>">Update
-            Account</a>
+            test="${tenantId!=null}">tenantId=${tenantId}&</c:if><c:if test="${operatorId!=null}">operatorId=${operatorId}</c:if>">
+            更新账户</a>
         <c:if test="${isDeveloper}">
-            &nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&nbsp;<a href="${webappPath}/dev/viewalltenants?tenantId=${tenantId}&operatorId=${operatorId}">Administration</a>
+            &nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&nbsp;<a href="${webappPath}/dev/viewalltenants?tenantId=${tenantId}&operatorId=${operatorId}">管理员</a>
         </c:if>
     </div>
 
@@ -52,7 +52,7 @@
                 </c:if>
                 <li<c:if test="${selectedMenu == 'home' }"> class="selectedMenu"</c:if>><a
                         href="${webappPath}/home?operatorId=${signedInOperatorId}"
-                        title="Home"><span>Home</span></a></li>
+                        title="Home"><span>主页</span></a></li>
                 <li<c:if test="${selectedMenu == 'myEasyrec' }"> class="selectedMenu"</c:if>><a
                         href="${webappPath}/easyrec/overview?operatorId=${signedInOperatorId}&tenantId=${tenantId}"
                         title="我的easyrec"><span>管理</span></a></li>

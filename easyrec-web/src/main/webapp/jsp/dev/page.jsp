@@ -1,5 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <jsp:include page="header.jsp"/>
 <body>
@@ -9,11 +11,11 @@
 
     <!-- modal content -->
     <div id='confirm'>
-        <div class='header'><span>Confirm</span></div>
+        <div class='header'><span>确认</span></div>
         <div class='message'></div>
         <div class='buttons'>
-            <div class='no simplemodal-close'>No</div>
-            <div class='yes'>Yes</div>
+            <div class='no simplemodal-close'>否</div>
+            <div class='yes'>是</div>
         </div>
     </div>
     <!-- preload the images -->

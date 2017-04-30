@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="esapi" uri="/WEB-INF/esapi.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
+
 
 <%--@elvariable id="tenantId" type="java.lang.String"--%>
 <%--@elvariable id="items" type="java.util.List<org.easyrec.model.core.web.Item>"--%>
@@ -15,14 +18,13 @@
 
     <jsp:include page="menubar.jsp"/>
     <span class="headlineBig">
-        Hot Recommendations on "${tenantId}"
+        "${tenantId}"上的热点推荐
     </span>
 
-    <p>
-        The hot recommendations list shows the most popular recommended items, i. e. items that easyrec presented to
-        the user as part of a recommendation and were then clicked on by a user.
+    <p>热门推荐列表显示了最受欢迎的推荐项目，即easyrec呈现给用户的推荐也被用户所点击。
 
-        The hot recommendations list shows the most popular recommended items.
+
+
     </p>
 
     <div class="contentContainer">
@@ -51,12 +53,8 @@
         </display:table>
 
         <c:if test="${fn:length(items)==0}">
-            <p>
-                Notice: This feature only works if you use the URLs supplied by easyrec in the field url within
-                recommendations
-                supplied by the REST API. Otherwise easyrec has no means to track clicks on recommended items and you
-                loose
-                this valuable information.
+            <p>注意：此功能仅适用于在REST API提供的推荐内容中，使用easyrec提供的URL。
+                否则easyrec无法跟踪推荐项目的点击，并且您丢失了有价值的信息。
             </p>
         </c:if>
 

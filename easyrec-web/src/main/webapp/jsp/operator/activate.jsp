@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 
 <div class="upperbody">
     <div id="operatoractivation">
@@ -13,11 +15,10 @@
                         <td><img alt="success" src="img/success.gif"/></td>
                     </tr>
                 </table>
-                <span class="headline">Welcome ${operator.firstName} ${operator.lastName}!</span><br/>
+                <span class="headline">欢迎您， ${operator.firstName} ${operator.lastName}!</span><br/>
 
-                <p>
-                    Your account has been activated!
-                    Continue by creating a tenant for your website and sending actions to the easyrec service!
+                <p>您的账户已经被激活了！
+                    您可以继续为您的网站创建一个租户，然后发送操作到easyrec服务！
                 </p>
 
                 <p>

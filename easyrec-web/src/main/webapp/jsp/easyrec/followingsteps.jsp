@@ -1,4 +1,6 @@
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2011 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -19,29 +21,27 @@
   --%>
 
 <p>
-   Please select the appropriate tab fitting the technology you use for integrating easyrec
+    请选择适合您用于集成easyrec的技术的相应选项卡
 </p>
 
 <div id="followingStepsTabs">
     <ul>
-        <li><a href="#plugins"><span>Plugins</span></a></li>
+        <li><a href="#plugins"><span>插件</span></a></li>
         <li><a href="#jsApi"><span>JS API</span></a></li>
         <li><a href="#restApi"><span>REST API</span></a></li>
     </ul>
 
     <div id="plugins">
-        <p>
-            If you use a plugin or module to integrate easyrec into your website please read the
-            documentation of your plugin/module to get started. Every plugin will most likely ask
-            you for these three things to configure in your application:
+        <p>如果您使用插件或者组件集成easyrec到您的网站，请您开始时一定仔细阅读文档。每个插件最有
+            可能会要求您在应用程序中配置以下三件事情：
         </p>
 
 
         <dl>
-            <dt>easyrec Api Key:</dt>
+            <dt>easyrec Api 密钥:</dt>
             <dd>${apiKey}</dd>
 
-            <dt>easyrec tenantId:</dt>
+            <dt>easyrec 租户ID:</dt>
             <dd class="tenantId"></dd>
 
             <dt>easyrec URL:</dt>
@@ -53,10 +53,11 @@
 
     <div id="jsApi">
         <p>
-            The <easyrec:wikiLink pageName="JavaScript_API_v0.98" name="JavaScript API"/> is a very easy to
-            use way to integrate easyrec into your website. This solution uses a thin javascript layer on top of the
-            REST API.
-            You will need the following code on your website to start sending actions and receiving recommendations:
+             <easyrec:wikiLink pageName="JavaScript_API_v0.98" name="JavaScript API"/>
+            JavaScript API是一种非常易于将easyrec集成到您的网站的方式。
+            这个方式在REST API上面使用了一个简单的JS层
+            您需要在您的网站上添加如下代码，以此来开始发送动作并接收推荐：
+
         </p>
 
         <code>
@@ -68,24 +69,25 @@
             &lt;/script&gt;
         </code>
         
-        <p>
-            The Javascript API is considered legagcy and does not support all API functions anymore. Consider using our <a href="https://sourceforge.net/p/easyrec/wiki/API/#angularjs-service" target="_blank">AngularJS service</a> instead.
+        <p>     这个Javascript API会被当作私有的，并且不支持所有的API函数。可以考虑使用我们的
+             <a href="https://sourceforge.net/p/easyrec/wiki/API/#angularjs-service" target="_blank">AngularJS service</a>
+            作为替代。
         </p>
 
     </div>
 
     <div id="restApi">
         <p>
-            The <a href="https://sourceforge.net/p/easyrec/wiki/API/" target="_blank">REST API</a> can be used in client-side code (as is
-            the case with the javascript API) or in server side code.
-            The following data is required for accessing the API:
+            <a href="https://sourceforge.net/p/easyrec/wiki/API/" target="_blank">REST API</a>
+            可以在客户端代码中被使用（和javascript API的情况类似），也可以在服务器端使用。
+            访问API需要以下数据 ：
         </p>
 
         <dl>
-            <dt>easyrec Api Key:</dt>
+            <dt>easyrec Api密钥:</dt>
             <dd>${apiKey}</dd>
 
-            <dt>easyrec tenantId:</dt>
+            <dt>easyrec 租户ID:</dt>
             <dd class="tenantId"></dd>
 
             <dt>easyrec URL:</dt>

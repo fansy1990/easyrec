@@ -2,6 +2,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="texta" uri="/WEB-INF/tagLib.tld" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
@@ -24,17 +26,18 @@
 
 <script src="${webappPath}/js/dev.js" type="text/javascript"></script>
 <div class="appendbody">
-    <h1>Plugin Logs</h1>
-
-    <p>
-        This page gives information about the plugin scheduler.
-        You can see which tenants where scheduled at which time. <br/>In the details section
-        you see the configuration used for execution and the statistics of the plugin.</p>
+    <h1>插件日志</h1>
+    <p>此页面提供有关插件调度器的信息。
+        你可以看到某个时间是哪个租户正在被调度。
+        <br/>
+        在详情模块，你可以看到运行的配置信息和插件的统计信息。
+      </p>
     <c:if test="${tenantId!='' && type==''}">
-        <a href="viewpluginlogs?operatorId=${operatorId}&tenantId=${tenantId}&type=all">show all logs...</a><br/>
+        <a href="viewpluginlogs?operatorId=${operatorId}&tenantId=${tenantId}&type=all">显示所有日志...</a><br/>
 
         <p>
-            showing plugin logs for operator '<b>${operatorId}</b>' and tenant '<b>${tenant}</b>'<br/>
+
+            展示'<b>${operatorId}</b>' 操作者和 '<b>${tenant}</b>'租户的插件日志。<br/>
         </p>
     </c:if>
     <c:choose>
@@ -46,7 +49,7 @@
                             <img title="clear generator logs" alt="delete all plugin logs"
                                  src="${webappPath}/img/button_delete.png"/>
                         </a>
-                        Delete <em>all</em> plugin logs
+                        删除 <em>所有</em>插件日志
                     </p>
                 </c:if>
 
@@ -58,16 +61,16 @@
                     <tr>
                         <th>#</th>
                         <c:if test="${type=='all'}">
-                            <th>Operator</th>
-                            <th>Tenant</th>
+                            <th>操作者</th>
+                            <th>租户</th>
                         </c:if>
-                        <th>Association Type</th>
-                        <th>Plugin</th>
-                        <th>Execution Date</th>
-                        <th>Duration</th>
-                        <th>Details</th>
-                        <th>Status</th>
-                        <th>Management</th>
+                        <th>关联类型</th>
+                        <th>插件</th>
+                        <th>执行日期</th>
+                        <th>持续时间</th>
+                        <th>详情</th>
+                        <th>状态</th>
+                        <th>管理</th>
                     </tr>
                     <c:forEach var="logEntry" items="${logEntries}" varStatus="status">
                         <tr id="${logEntry.id}"
@@ -136,11 +139,8 @@
             </div>
         </c:when>
         <c:otherwise>
-            <p>
-                There are no plugin logs so far.
-                Check the tenant configuration in the <a href="viewalltenants">tenant section</a> to schedule plugins
-                for
-                each tenant.
+            <p>迄今为止还没有插件日志。
+               您可以在<a href="viewalltenants">租户模块</a>检查租户配置信息，从而为每个租户安排插件。
             </p>
         </c:otherwise>
     </c:choose>

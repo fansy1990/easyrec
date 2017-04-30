@@ -37,7 +37,7 @@
             </div>
             <div style="padding-top: 15px;">
                 <div style="float: left;">
-                    <a class="button--filled easyrecblue" onclick="signinUser();" href="#">Sign in
+                    <a class="button--filled easyrecblue" onclick="signinUser();" href="#">Sign In
                         <!--<img alt="sign in" src="${webappPath}/img/button_signin.gif"/>-->
                     </a>
                 </div>
@@ -54,13 +54,13 @@
     <c:if test="${signedIn}">
         <div id="loginBox" style="background-color: #ffffff">
             <c:if test="${signedIn && (signedInOperator.firstName!='' || signedInOperator.lastName!='') }">
-                <div class="headline">Hello ${signedInOperator.firstName} ${signedInOperator.lastName}!</div>
+                <div class="headline">您好 ${signedInOperator.firstName} ${signedInOperator.lastName}!</div>
             </c:if>
             <div style="border: 1px solid #ccc;padding-bottom: 15px;padding-left: 10px; height:100px; background-color: #eef9ff">
                 <div style="padding-top: 15px;">
                     <div style="float:left;height:100px">
-                        You are signed in as '${signedInOperator.operatorId}'.<br/><br/>
-                        Click <a href="javascript:signoutUser();">here</a> to sign out.
+                        您当前以 '${signedInOperator.operatorId}'的身份登录.<br/><br/>
+                       点击 <a href="javascript:signoutUser();">这里</a> 可以注销.
                     </div>
                 </div>
             </div>

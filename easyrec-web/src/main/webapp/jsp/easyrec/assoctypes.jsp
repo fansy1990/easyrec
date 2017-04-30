@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2011 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -45,17 +47,17 @@
 </script>
 
 
-<h2>Assoc Type Manager</h2>
+<h2>关联类型管理器</h2>
 
-<p>
-    Use the assoc type manager to create <a href="https://sourceforge.net/p/easyrec/wiki/Assoc Types/" target="_blank">Assoc types</a>.
-    Assoc types are used to define the relation between two items. As an Administrator you can set specific
-    Plugins for each assoc type.
+<p>使用关联类型管理器去创建
+   <a href="https://sourceforge.net/p/easyrec/wiki/Assoc Types/" target="_blank">关联类型</a>。
+    关联类型被用来定义两个项目之间的关系。作为管理员，您可以为每个关联类型设置特定的插件。
+
 </p>
 
 
     <div class="info">
-        <b>Note:</b> Once an Assoc Type has been created it cannot be removed!
+        <b>注意:</b>关联类型一旦被创建就不能再被移除！
     </div>
 
     <c:if test="${error!= null}">
@@ -64,25 +66,25 @@
 
     <br>
 
-    <h3>Assoc Types for ${tenantId}</h3>
+    <h3> ${tenantId}的关联类型</h3>
     <a href="javascript:void(0)" onclick="showCreateNewAssocTypeForm()">
         <img src="${webappPath}/img/cluster_manager_plus.png"/>
-        add new Assoc Type
+        添加新的关联类型
     </a>
 
     <display:table name="assocTypes" class="tableData" id="row" pagesize="0">
-        <display:column title="Assoc Type Name" sortable="false">
+        <display:column title="关联类型名" sortable="false">
             ${row}
         </display:column>
     </display:table>
 
 
 <div id="createNewAssocTypeForm" style="display:none;">
-    <h1>Create a new assoc type</h1>
+    <h1>创建新的关联类型</h1>
 
     <p>
-        Here you can create a new assoc type for your tenant. After creating it here you are ready to
-        use it in API calls.
+        在这您可以为您的租户创建一个新的关联类型。创建之后您就可以在API调用的时候使用它。
+
     </p>
 
     <div>
@@ -90,11 +92,11 @@
             <input type="hidden" name="tenantId" value="${tenantId}"/>
             <input type="hidden" name="operatorId" value="${operatorId}"/>
 
-            <label for="assocTypeName"> Enter the name of the new assoc type </label>
+            <label for="assocTypeName"> 输入新的关联类型名 </label>
             <input type="text" id="assocTypeName" name="assocTypeName"/>
 
             <input type="submit" class="button--filled easyrecblue" style="font-family: Arial" id="submitSearch" name="submit"
-                   value="Create"/>
+                   value="创建"/>
         </form>
     </div>
 </div>

@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -20,18 +22,18 @@
   --%>
 
 <div class="appendbody">
-    <h1>Plugins</h1>
-    <a href="pluginupload?tenantId=${tenantId}&operatorId=${operatorId}">Upload new plugin</a>
+    <h1>插件</h1>
+    <a href="pluginupload?tenantId=${tenantId}&operatorId=${operatorId}">上传新的插件</a>
     <br/>
     <table width="100%" cellpadding="10">
         <tr>
-            <th>Id</th>
-            <th>displayName</th>
-            <th>pluginId</th>
-            <th>version</th>
-            <th>state</th>
-            <th>execution State</th>
-            <th>progress</th>
+            <th>编号</th>
+            <th>展示名称</th>
+            <th>插件编号</th>
+            <th>版本</th>
+            <th>状态</th>
+            <th>执行状态</th>
+            <th>进程</th>
         </tr>
         <c:forEach var="plugin" items="${pluginList}" varStatus="status">
             <tr <c:if test="${status.count % 2 == 1}">style="background-color:#eeeeee"</c:if>>

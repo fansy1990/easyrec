@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="texta" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -21,12 +23,12 @@
 
 <script src="${webappPath}/js/dev.js" type="text/javascript"></script>
 <div class="appendbody">
-    <h1>Operators</h1>
+    <h1>操作者</h1>
 
     <div id="status"><br/></div>
     <form name="searchForm">
         <input id="searchString" name="searchString" type="text" value="${searchString}"/>
-        <input type="button" value="Search" onclick="selectPageSearch('${url}?tenantId=${tenantId}&operatorId=${operatorId}', document.searchForm.searchString.value)"/> 
+        <input type="button" value="查找" onclick="selectPageSearch('${url}?tenantId=${tenantId}&operatorId=${operatorId}', document.searchForm.searchString.value)"/>
     </form> 
 
     <div id="operators">
@@ -35,14 +37,14 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th>Operator</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Logins</th>
-                <th>Last Login</th>
-                <th>Creation Date</th>
-                <th>API Key</th>
-                <th>Active</th>
+                <th>操作者</th>
+                <th>名字</th>
+                <th>姓氏</th>
+                <th>登录数</th>
+                <th>最后登录</th>
+                <th>创建日期</th>
+                <th>API密钥</th>
+                <th>激活</th>
                 <!--th>Admin</th-->
             </tr>
             <c:forEach var="operator" items="${operators}" varStatus="status">

@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="easyrec" uri="/WEB-INF/tagLib.tld" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%--
   ~ Copyright 2010 Research Studios Austria Forschungsgesellschaft mBH
   ~
@@ -25,41 +27,38 @@
 <div class="appendbody" style="min-height: 400px;">
     <jsp:include page="menu.jsp"/>
 
-    <span class="headlineBig">Create a new Tenant</span>
+    <span class="headlineBig">创建一个新的租户
+        </span>
 
-    <p>
-        Here you can create a new <easyrec:wikiLink name="tenant"/>. The tenant name will be used in
-        <a href="${webappPath}/API">API</a> calls to identify your website when you send
-        actions or receive recommendations. If you want to test easyrec on your local machine
-        use http://127.0.0.1/ as URL. If you are not sure how to start with easyrec read the
-        <easyrec:wikiLink name="Getting Started"/> guide.
+    <p>在这里您可以创建一个新的<easyrec:wikiLink name="租户"/>。 租户名将会被应用在
+        <a href="${webappPath}/API">API</a> 调用中，用来在当你产生操作或接收推荐时识别您的网站 。
+        如果您想在您的本地主机上测试easyrec，您可以使用 http://127.0.0.1/作为URL。如果您并不太清楚
+        怎样去启动easyrec，您可以阅读
+        <easyrec:wikiLink name="开启easyrec"/> 指导说明。
     </p>
 
     <div id="createTenantForm" class="contentContainer">
         <div id="error" class="error" style="display:none;"></div>
         <form id="registerOperator" action="">
-            <label for="tenantId">tenant ID:</label>
+            <label for="tenantId">租户ID:</label>
 
-            <p>
-                The tenant ID is used to identify your website in API calls. This ID cannot be changed afterwards.<br>
-                Use a machine readable name only containing the following characters: A-Z a-z 0-9 and _
+            <p>租户ID用于在API调用中标识您的网站。这个ID之后不能再被修改。<br>
+                使用仅包含以下字符的机读名称: A-Z a-z 0-9 和 _
             </p>
             <input id="tenantId" name="tenantId" type="text" size="40" maxlength="50"/>
 
             <label for="url">URL:</label>
 
-            <p>
-                Enter the URL of your website here. The easyrec service will automatically
-                add this URL to relative URLs you send via the API calls. You will be able
-                to edit this value later in the tenant configuration.
+            <p>在这里输入您的网站的URL。easyrec服务将自动将此URL添加到通过API调用发送的相对URL中。
+                您稍后可以在租户配置中编辑此值。
+
             </p>
             <input id="url" name="url" type="text" size="40" value="http://"/>
-
-            <label for="easyrec_description">Description:</label>
+            <br/>
+            <label for="easyrec_description">描述:</label>
 
             <p>
-                Provide an optional description of your tenant (max 250 chars). You will be able
-                to edit this value later in the tenant configuration.
+                提供您的租户的可选描述(最多250个字符)。您稍后可以在租户配置中编辑此值。
             </p>
 
             <div id="charCountInfo">
@@ -67,7 +66,7 @@
             </div>
             <textarea id="easyrec_description" name="easyrec_description" type="text"></textarea>
 
-            <a id="createTenantSubmit" onclick="registerTenant('${operatorId}')" href="#" class="button--filled easyrecblue">Create
+            <a id="createTenantSubmit" onclick="registerTenant('${operatorId}')" href="#" class="button--filled easyrecblue">创建
                 <!--<img alt="create" src="${webappPath}/img/button_create.gif"/>-->
             </a>
         </form>
@@ -78,9 +77,8 @@
 <div id="followingSteps" style="display:none;">
     <img src="${webappPath}/img/success.gif" style="float:left;"/>
 
-    <p>
-        Your tenant was created successfully! Now you can use your tenant ID and the API key to
-        send actions to the easyrec service.
+    <p>您的租户已经成功创建了！现在您可以使用您的租户ID和API密钥将操作发送到easyrec服务。
+
     </p>
 
      <jsp:include page="followingsteps.jsp"/>
@@ -92,12 +90,12 @@
         var text = $('#' + textid).val();
         var textlength = text.length;
         if (textlength > limit) {
-            $('#' + infodiv).html('You cannot write more then ' + limit + ' characters!');
+            $('#' + infodiv).html('您不能超过 ' + limit + ' 个字符!');
             $('#' + textid).val(text.substr(0, limit));
             return false;
         }
         else {
-            $('#' + infodiv).html('You have ' + (limit - textlength) + ' characters left.');
+            $('#' + infodiv).html('您还有 ' + (limit - textlength) + '个字符。');
             return true;
         }
     }
@@ -107,6 +105,6 @@
             limitChars('easyrec_description', 250, 'charCountInfo');
         })
         var textlength = $('#easyrec_description').val().length;
-        $('#charCountInfo').html('You have ' + (250 - textlength) + ' characters left.');
+        $('#charCountInfo').html('您还剩余 ' + (250 - textlength) + ' 个字符。');
     });
 </script>
