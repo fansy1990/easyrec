@@ -1,0 +1,12 @@
+
+ratings:
+uid,mid,pref,predate
+
+
+movies:
+mid,title,genres
+
+users:
+uid,gender,age,occupation,zip
+
+采用双冒号分割；

@@ -1,4 +1,4 @@
-package demo;
+package actions;
 
 import model.Rating;
 import util.HttpToolkit;
@@ -16,7 +16,7 @@ import java.util.Map;
 public class AddRating {
 
     public static void main(String[] args) throws IOException {
-        String filename = "easyrec-test-restapi/src/main/java/demo/data.csv";
+        String filename = "easyrec-test-restapi/src/main/java/actions/data.csv";
         String url = Utils.getServer() +"/api/1.1/sendaction";
         for(Rating rating :getRatings(filename)) {
             Map<String, String> params = Utils.rating2Map(rating);
@@ -58,7 +58,7 @@ public class AddRating {
             ratingList.add(new Rating(itemid,Utils.getItemDesc(itemid),
                     Utils.getItemUrl(itemid),userid,
                     Utils.getItemImgUrl(itemid),"RATE",
-                    pref,Utils.currentTime(),
+                    String.valueOf(Double.parseDouble(pref) * 2),Utils.currentTime(),
                     "ITEM","",Utils.getSessionId(userid)
                     ));
         }

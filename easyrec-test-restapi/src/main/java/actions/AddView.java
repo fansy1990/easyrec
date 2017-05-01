@@ -1,4 +1,4 @@
-package demo;
+package actions;
 
 import model.Rating;
 import util.HttpToolkit;
@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class AddView {
     public static void main(String[] args) throws IOException, InterruptedException {
-        String filename = "easyrec-test-restapi/src/main/java/demo/data.csv";
+        String filename = "easyrec-test-restapi/src/main/java/actions/data.csv";
         String url = Utils.getServer() + "/api/1.1/sendaction";
         for (Rating rating : getRatings(filename)) {
             Map<String, String> params = Utils.rating2Map(rating);

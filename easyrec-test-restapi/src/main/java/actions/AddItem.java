@@ -1,11 +1,9 @@
-package demo;
+package actions;
 
 import org.easyrec.model.core.web.Item;
 import util.HttpToolkit;
 import util.Utils;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

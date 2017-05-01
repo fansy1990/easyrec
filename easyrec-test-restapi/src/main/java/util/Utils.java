@@ -163,4 +163,10 @@ public class Utils {
         System.out.println("========================");
         System.out.println(prettyFormat(input));
     }
+
+    public static String getMovieDesc(String mid, String title, String genres) {
+        return "movieId: "+mid +"\n" +
+                "title: "+ title +"\n" +
+                "genres: "+ genres;
+    }
 }
