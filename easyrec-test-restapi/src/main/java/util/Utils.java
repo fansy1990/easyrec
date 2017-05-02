@@ -14,6 +14,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -137,7 +138,17 @@ public class Utils {
         return new Date().toString();
     }
 
+    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+    public static String currentTime(long ts){
+
+        return simpleDateFormat.format( new Date(ts * 1000));
+    }
+
+    public static void main(String[] args){
+        long t= 978300760 *1000;
+        System.out.println(currentTime(t));
+    }
     public static String prettyFormat(String input, int indent) {
         try {
             Source xmlInput = new StreamSource(new StringReader(input));

@@ -13,9 +13,9 @@ import java.util.Map;
  * Created by fanzhe on 2017/5/1.
  */
 public class AddRating {
-    private static final String COLON="::";
+    private static final String COMMA=",";
     public static void main(String[] args) throws IOException {
-        String filename = "easyrec-test-restapi/src/main/java/movies_demo/ratings.dat";
+        String filename = "easyrec-test-restapi/src/main/java/movies_demo/ratings.csv";
         String url = Utils.getServer() +"/api/1.1/sendaction";
         for(Rating rating :getRatings(filename)) {
             Map<String, String> params = Utils.rating2Map(rating);
@@ -34,8 +34,8 @@ public class AddRating {
         String pref;
         String pretime;
         for(String line : Utils.readFile(filename)){
-            // line = uid,mid,pref,predate
-            data = line.split(COLON);
+            // line = userId,movieId,rating,timestamp
+            data = line.split(COMMA);
             userid = data[0];
             itemid = data[1];
             pref = data[2];
@@ -48,12 +48,12 @@ public class AddRating {
             ratingList.add(new Rating(itemid,Utils.getItemDesc(itemid),
                     Utils.getItemUrl(itemid),userid,
                     Utils.getItemImgUrl(itemid),"RATE",
-                    String.valueOf(Double.parseDouble(pref) * 2),Utils.currentTime(),
+                    String.valueOf(Double.parseDouble(pref) * 2),Utils.currentTime(Long.parseLong(pretime)),
                     "ITEM","",Utils.getSessionId(userid)
             ));
         }
 
         return ratingList;
     }
-    }
+
 }
