@@ -47,6 +47,7 @@
          -->
         | <a class="menu_admin" href="plugins?tenantId=${tenantId}&operatorId=${operatorId}">插件</a>
         | <a class="menu_admin" href="home?tenantId=${tenantId}&operatorId=${operatorId}">信息</a>
+        | <a class="menu_admin" href="batch?tenantId=${tenantId}&operatorId=${operatorId}">批量导入</a>
     </div>
 
 </div>

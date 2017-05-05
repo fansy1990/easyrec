@@ -126,6 +126,10 @@
                 <prop key="/clustermanager/ajax/searchresult">itemSearchController</prop>
                 <prop key="/apitest">homeController</prop>
                 <prop key="/apitestprofile">homeController</prop>
+                <!-- 批量上传 -->
+                <prop key="/dev/batch">batchController</prop>
+                <prop key="/dev/batchupload">batchController</prop>
+                <prop key="/dev/batchupload.form">batchUploadController</prop>
             </props>
         </property>
     </bean>
@@ -225,6 +229,12 @@
         <property name="pluginRegistry" ref="pluginRegistry"/>
     </bean>
 
+    <bean name="batchController" class="org.easyrec.controller.dev.BatchController">
+        <property name="remoteTenantDAO" ref="remoteTenantDAO"/>
+        <property name="pluginDAO" ref="pluginDAO"/>
+        <property name="pluginRegistry" ref="pluginRegistry"/>
+    </bean>
+
     <bean name="pluginLogsController" class="org.easyrec.controller.dev.PluginLogController">
         <property name="remoteTenantDAO" ref="remoteTenantDAO"/>
         <property name="logEntryDAO" ref="logEntryDAO"/>
@@ -250,6 +260,14 @@
     </bean>
 
     <bean id="pluginUploadController" class="org.easyrec.controller.PluginUploadController">
+        <property name="commandClass" value="org.easyrec.model.web.FileUploadBean"/>
+        <property name="formView" value="pluginupload"/>
+        <property name="successView" value="/dev/plugins"/>
+        <property name="pluginRegistry" ref="pluginRegistry"/>
+        <property name="pluginDAO" ref="pluginDAO"/>
+    </bean>
+
+    <bean id="batchUploadController" class="org.easyrec.controller.BatchUploadController">
         <property name="commandClass" value="org.easyrec.model.web.FileUploadBean"/>
         <property name="formView" value="pluginupload"/>
         <property name="successView" value="/dev/plugins"/>
