@@ -33,12 +33,14 @@ import org.easyrec.utils.io.MySQL;
 import org.easyrec.utils.io.Text;
 import org.easyrec.utils.spring.store.dao.DaoUtils;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
 import javax.sql.DataSource;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -193,6 +195,33 @@ public class ItemDAOMysqlImpl extends BasicDAOMysqlImpl implements ItemDAO {
     private static String makeCacheKey(Integer tenantId, String itemType, String itemId) {
         return new StringBuilder().append(tenantId).append(DELIMITER).append(itemId).append(DELIMITER)
                 .append(itemType).toString();
+    }
+
+    @Override
+    public int batchAdd(final List<Item> items){
+        try{
+            return getJdbcTemplate().batchUpdate(SQL_ADD_ITEM, new BatchPreparedStatementSetter() {
+                @Override
+                public void setValues(PreparedStatement ps, int i) throws SQLException {
+//                    TENANTID, ITEMID, ITEMTYPE, DESCRIPTION, URL, IMAGEURL
+                    ps.setInt(1,items.get(i).getTenantId());
+                    ps.setString(2, items.get(i).getItemId());
+                    ps.setString(3, items.get(i).getItemType());
+                    ps.setString(4, items.get(i).getDescription());
+                    ps.setString(5,Web.makeUrlSecure(items.get(i).getUrl()));
+                    ps.setString(6,Web.makeUrlSecure(items.get(i).getImageUrl()));
+                }
+
+                @Override
+                public int getBatchSize() {
+                    return items.size();
+                }
+            }).length;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 
     @Override

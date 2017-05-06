@@ -99,6 +99,15 @@ public class Item implements Serializable {
         this.creationDate = creationDate;
     }
 
+    public Item(Integer tenantId,String itemId,String itemType,String description,String url,String imgUrl){
+        this.tenantId = tenantId;
+        this.itemId=itemId;
+        this.itemType= itemType;
+        this.description=description;
+        this.url=url;
+        this.imageUrl=imgUrl;
+    }
+
     /**
      * Returns the internal id of the item table
      *

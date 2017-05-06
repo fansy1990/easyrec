@@ -20,6 +20,7 @@ package org.easyrec.controller.dev;
 
 import com.google.common.collect.Maps;
 import org.easyrec.model.plugin.PluginVO;
+import org.easyrec.model.web.BatchUploadLogVO;
 import org.easyrec.plugin.Progress;
 import org.easyrec.plugin.container.PluginRegistry;
 import org.easyrec.plugin.generator.Generator;
@@ -28,6 +29,7 @@ import org.easyrec.plugin.model.PluginId;
 import org.easyrec.plugin.model.Version;
 import org.easyrec.plugin.stats.GeneratorStatistics;
 import org.easyrec.store.dao.plugin.PluginDAO;
+import org.easyrec.store.dao.web.BatchUploadLogDAO;
 import org.easyrec.store.dao.web.RemoteTenantDAO;
 import org.easyrec.util.core.MessageBlock;
 import org.easyrec.util.core.Security;
@@ -51,15 +53,15 @@ import java.util.Map;
 public class BatchController extends MultiActionController {
 
     private RemoteTenantDAO remoteTenantDAO;
-    private PluginDAO pluginDAO;
+    private BatchUploadLogDAO batchUploadLogDAO;
     private PluginRegistry pluginRegistry;
 
     public void setRemoteTenantDAO(RemoteTenantDAO remoteTenantDAO) {
         this.remoteTenantDAO = remoteTenantDAO;
     }
 
-    public void setPluginDAO(PluginDAO pluginDAO) {
-        this.pluginDAO = pluginDAO;
+    public void setBatchUploadLogDAO(BatchUploadLogDAO batchUploadLogDAO) {
+        this.batchUploadLogDAO = batchUploadLogDAO;
     }
 
     public void setPluginRegistry(PluginRegistry pluginRegistry) {
@@ -89,25 +91,11 @@ public class BatchController extends MultiActionController {
             mav.addObject("page", "batch");
             mav.addObject("signedinOperatorId", Security.signedInOperatorId(request));
 
-            List<PluginVO> plugins = pluginDAO.loadPlugins();
-            Map<PluginId, Generator<GeneratorConfiguration, GeneratorStatistics>> generators = this.pluginRegistry
-                    .getGenerators();
-            //for each generator, fetch Progress and ExecutionState
-            //put that into MAV
-            //display
+            List<BatchUploadLogVO> plugins = batchUploadLogDAO.loadBatchUploadLogsByOperator(operatorId);
 
-            Map<PluginId, String> executionStates = Maps.newHashMap();
-            Map<PluginId, Progress> progresses = Maps.newHashMap();
 
-            for (PluginId pluginID : generators.keySet()) {
-                Generator<GeneratorConfiguration, GeneratorStatistics> generator = generators.get(pluginID);
-                executionStates.put(pluginID, generator.getExecutionState().toString());
-                progresses.put(pluginID, generator.getProgress());
-            }
+            mav.addObject("logList", plugins);
 
-            mav.addObject("pluginList", plugins);
-            mav.addObject("executionStates", executionStates);
-            mav.addObject("progresses", progresses);
             return mav;
         } else {
             return MessageBlock.createSingle(mav, MSG.NOT_SIGNED_IN, VIEW_PLUGINS, MSG.ERROR);

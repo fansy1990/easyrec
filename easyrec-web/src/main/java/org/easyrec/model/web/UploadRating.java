@@ -1,9 +1,9 @@
-package model;
+package org.easyrec.model.web;
 
 /**
  * Created by fanzhe on 2017/4/27.
  */
-public class Rating {
+public class UploadRating {
     public String getSessionid() {
         return sessionid;
     }
@@ -13,12 +13,12 @@ public class Rating {
     }
 
     private String sessionid;
-    public Rating(){}
-    public Rating(String itemid,String itemdescription,
-                  String itemurl, String userid,
-                  String itemimageurl,String actiontype,
-                  String actionvalue,String actiontime,
-                  String itemtype,String actioninfo,String sessionid){
+    public UploadRating(){}
+    public UploadRating(String itemid, String itemdescription,
+                        String itemurl, String userid,
+                        String itemimageurl, String actiontype,
+                        String actionvalue, String actiontime,
+                        String itemtype, String actioninfo, String sessionid){
         this.itemdescription = itemdescription;
         this.itemid = itemid;
         this.itemurl = itemurl;
@@ -32,11 +32,11 @@ public class Rating {
         this.sessionid= sessionid;
     }
 
-    public Rating(String userId, String itemId,String itemType, String itemDescription,
-                        String itemUrl, String itemImageUrl, String actionValue,String  actionDate,String actionInfo){
+    public UploadRating(String userId, String itemId, String itemType, String itemDescription,
+                        String itemUrl, String itemImageUrl, String actionValue, String actionDate, String actionInfo){
         this.userid = userId;
         this.itemdescription= itemDescription;
-        this.itemid = itemDescription;
+        this.itemid = itemId;
         this.itemtype = itemType;
         this.itemurl =itemUrl;
         this.itemimageurl = itemImageUrl;

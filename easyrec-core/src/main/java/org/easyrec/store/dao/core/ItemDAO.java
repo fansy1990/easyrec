@@ -68,6 +68,7 @@ public interface ItemDAO extends BasicDAO {
     public static final String DEFAULT_TABLE_NAME = "item";
     public static final String DEFAULT_TABLE_KEY = "id";
 
+    public int batchAdd(final List<Item> items);
 
     /**
      * This Function saves an Item.

@@ -22,6 +22,7 @@
     <import resource="classpath:spring/web/common/dao/assocDAO.xml"/>
     <import resource="classpath:spring/web/common/dao/operatorDAO.xml"/>
     <import resource="classpath:spring/web/common/dao/backtrackingDAO.xml"/>
+    <import resource="classpath:spring/web/common/dao/batchUploadLogDAO.xml"/>
     <import resource="classpath:spring/web/common/dao/remoteTenantDAO.xml"/>
     <import resource="classpath:spring/web/common/dao/statisticsDAO.xml"/>
     <import resource="classpath:spring/core/dao/ProfileDAO.xml"/>

@@ -231,7 +231,7 @@
 
     <bean name="batchController" class="org.easyrec.controller.dev.BatchController">
         <property name="remoteTenantDAO" ref="remoteTenantDAO"/>
-        <property name="pluginDAO" ref="pluginDAO"/>
+        <property name="batchUploadLogDAO" ref="batchUploadLogDAO"/>
         <property name="pluginRegistry" ref="pluginRegistry"/>
     </bean>
 
@@ -272,7 +272,12 @@
         <property name="formView" value="pluginupload"/>
         <property name="successView" value="/dev/plugins"/>
         <property name="pluginRegistry" ref="pluginRegistry"/>
-        <property name="pluginDAO" ref="pluginDAO"/>
+        <property name="batchUploadLogDAO" ref="batchUploadLogDAO"/>
+        <property name="operatorDAO" ref="operatorDAO"/>
+        <property name="itemDAO" ref ="itemDAO"/>
+        <property name="shopRecommenderService" ref="shopRecommenderService"/>
+        <property name="tenantService" ref="tenantService"/>
+        <property name="remoteTenantDAO" ref="remoteTenantDAO" />
     </bean>
 
     <bean name="easyRecController" class="org.easyrec.controller.EasyRecController">
