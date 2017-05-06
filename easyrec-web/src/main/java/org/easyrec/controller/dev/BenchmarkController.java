@@ -50,7 +50,7 @@ public class BenchmarkController  extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);
@@ -101,8 +101,8 @@ public class BenchmarkController  extends MultiActionController {
                         "<a href='javascript:jamonreset()'>reset</a><br/><br/>" + jamonReport.toString());
             } else {
                 StringBuilder emptyReport = new StringBuilder();
-                emptyReport.append("Please do some REST API calls (e.g.view) ");
-                emptyReport.append("to see results here.<br/><br/>");
+                emptyReport.append("请做一些REST API请求(e.g.查看) ");
+                emptyReport.append("来查看结果.<br/><br/>");
                 emptyReport.append("<a href='");
                 emptyReport.append(request.getContextPath());
                 emptyReport.append("/dev/jamonreport?tenantId=").append(tenantId).append("&operatorId=").append(operatorId).append("'>refresh</a>.");
@@ -127,7 +127,7 @@ public class BenchmarkController  extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);

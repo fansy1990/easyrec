@@ -37,7 +37,7 @@
             </div>
             <div style="padding-top: 15px;">
                 <div style="float: left;">
-                    <a class="button--filled easyrecblue" onclick="signinUser();" href="#">Sign In
+                    <a class="button--filled easyrecblue" onclick="signinUser();" href="#">登录
                         <!--<img alt="sign in" src="${webappPath}/img/button_signin.gif"/>-->
                     </a>
                 </div>

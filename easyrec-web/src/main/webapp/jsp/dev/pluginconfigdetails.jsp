@@ -25,7 +25,7 @@
 
 <table class="configtable" >
     <tr hidden="true">
-        <th class="configparam" ><strong>configuration</strong></th>
+        <th class="configparam" ><strong>配置</strong></th>
         <td class="configedit"></td>
         <td class="configvalue">
             <%-- TODO onchange make divs visable/invisible --%>
@@ -41,7 +41,7 @@
         </td>
         <td rowspan="1">
             <div class="pluginconfig_help" id="div_${assocType.value}_plugin">
-                Select the configuration you want to use for this plugin
+                选择用于此插件的配置
             </div>
         </td>
     </tr>
@@ -50,7 +50,7 @@
 
 <h4>
     <a href="javascript:toggleConfigDetails('${assocTypeId}');">
-        Settings
+        设置
     </a>
 </h4>
 

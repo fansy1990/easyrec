@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <%@ page isErrorPage="true" %>
 <head>
-    <title>easyrec :: error</title>
+    <title>华联云谷推荐平台 :: error</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/easyrec.css"/>
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/img/favicon.ico"/>
     <link rel="icon" href="<%=request.getContextPath()%>/img/favicon.ico"/>
@@ -21,7 +21,7 @@
     <div class="menu">
         <div style="padding: 10px; position: absolute; left: 13px; top: 25px;">
             <a href="<%=request.getContextPath()%>/">
-                <span class="logo">easyrec</span>
+                <span class="logo">华联云谷推荐平台</span>
             </a>
         </div>
     </div>
@@ -30,7 +30,7 @@
             <br/><br/>
 
             <div class="headline">
-                An error occurred!
+                发生错误！
             </div>
             <br/>Click <a href="javascript:history.go(-1);">here</a> to go back.
         </div>

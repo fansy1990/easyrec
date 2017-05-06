@@ -102,7 +102,7 @@ public class EasyRecController extends MultiActionController {
 
     public ModelAndView overview(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = security(request, response);
-        mav.addObject("title", "easyrec :: management");
+        mav.addObject("title", "华联云谷::管理");
         mav.addObject("menubar", "tenant");
 
         if (Security.nullAttribute(request, "tenantId") ||
@@ -131,7 +131,7 @@ public class EasyRecController extends MultiActionController {
             mav.addObject("apiKey", operator.getApiKey());
 
         if (Security.isSignedIn(request)) {
-            mav.addObject("title", "easyrec :: create tenant");
+            mav.addObject("title", "华联云谷::创建租户");
             mav.addObject("page", "easyrec/create");
             mav.addObject("create", true);
             mav.addObject("tenants", remoteTenantDAO.getTenantsFromOperator(operatorId));
@@ -149,7 +149,7 @@ public class EasyRecController extends MultiActionController {
     public ModelAndView update(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = security(request, response);
 
-        mav.addObject("title", "easyrec :: update tenant");
+        mav.addObject("title", "华联云谷::更新租户");
         mav.addObject("page", "easyrec/update");
         mav.addObject("update", true);
 
@@ -162,7 +162,7 @@ public class EasyRecController extends MultiActionController {
     public ModelAndView tenant(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = security(request, response);
 
-        mav.addObject("title", "easyrec :: management");
+        mav.addObject("title", "华联云谷::管理");
         mav.addObject("page", "easyrec/tenant");
         mav.addObject("menubar", "tenant");
         mav.addObject("tenantId", (String) Security.getAttribute(request, "tenantId"));

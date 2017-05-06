@@ -394,7 +394,7 @@ public class RemoteTenantController extends MultiActionController {
             }
         }
 
-        mav.addObject("title", "tenant");
+        mav.addObject("title", "租户");
 
         if (Security.isDeveloper(request) && !Strings.isNullOrEmpty(operatorId)) {
             mav.addObject("operatorId", operatorId);
@@ -557,7 +557,7 @@ public class RemoteTenantController extends MultiActionController {
             mav.setViewName("xml/statistics");
         }
         Security.setAttribute(request, "menu", "statistics");
-        mav.addObject("title", "easyrec :: view statistics");
+        mav.addObject("title", "华联云谷::查看统计");
         mav.addObject("menubar", VIEW_STATISTICS);
         mav.addObject("page", "easyrec/viewstatisticsassocs");
         mav.addObject("tenantId", tenantId);
@@ -621,7 +621,7 @@ public class RemoteTenantController extends MultiActionController {
             mav.addObject("assocTypeToPlugin", assocTypeToPlugin); // this is used to display the help texts
             mav.addObject("pluginRealName", pluginRealName); // contains human readable names of the plugins
 
-            mav.addObject("title", "easyrec :: view statistics");
+            mav.addObject("title", "华联云谷::查看统计");
 
             if (Security.isDeveloper(request) && !Strings.isNullOrEmpty(operatorId)) {
                 mav.addObject("operatorId", operatorId);
@@ -681,7 +681,7 @@ public class RemoteTenantController extends MultiActionController {
         Security.setAttribute(request, "menu", "viewmostvieweditems");
         mav.setViewName("page");
         mav.addObject("menubar", VIEW_TOP_RANKED_ITEMS);
-        mav.addObject("title", "easyrec :: view top ranked items");
+        mav.addObject("title", "华联云谷::Top项目");
         mav.addObject("page", "easyrec/viewmostvieweditems");
         mav.addObject("tenantId", tenantId);
         mav.addObject("tenants", remoteTenantDAO.getTenantsFromOperator(operatorId));
@@ -770,7 +770,7 @@ public class RemoteTenantController extends MultiActionController {
         Security.setAttribute(request, "menu", "viewhotrecommendations");
         // the page view provides the design with a side menu and the menu bar
         mav.setViewName("page");
-        mav.addObject("title", "easyrec :: view hot recommendations");
+        mav.addObject("title", "华联云谷::热点推荐");
         mav.addObject("menubar", VIEW_HOT_RECOMMENDATIONS);
         mav.addObject("page", "easyrec/viewhotrecommendations");
         mav.addObject("tenantId", tenantId);
@@ -828,7 +828,7 @@ public class RemoteTenantController extends MultiActionController {
         Security.setAttribute(request, "menu", VIEW_CLUSTER_MANAGER);
         // the page view provides the design with a header and footer
         mav.setViewName("page");
-        mav.addObject("title", "easyrec :: cluster manager");
+        mav.addObject("title", "华联云谷::分组管理");
         mav.addObject("menubar", VIEW_CLUSTER_MANAGER);
         mav.addObject("page", "easyrec/clustermanager");
         mav.addObject("tenantId", tenantId);

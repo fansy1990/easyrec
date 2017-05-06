@@ -70,7 +70,7 @@ public class HomeController extends MultiActionController {
     public ModelAndView home(HttpServletRequest request, HttpServletResponse httpServletResponse) {
 
         ModelAndView mav = new ModelAndView("page");
-        mav.addObject("title", "easyrec :: home ");
+        mav.addObject("title", "华联云谷::主页");
         mav.addObject("page", "home");
         mav.addObject("selectedMenu", "home");
         mav.addObject("signedInOperator", Security.signedInOperator(request));
@@ -82,7 +82,7 @@ public class HomeController extends MultiActionController {
     public ModelAndView API(HttpServletRequest request, HttpServletResponse httpServletResponse) {
 
         ModelAndView mav = new ModelAndView("page");
-        mav.addObject("title", "easyrec :: api");
+        mav.addObject("title", "华联云谷::API");
         mav.addObject("page", "api");
         mav.addObject("selectedMenu", "api");
         RemoteTenant remoteTenant = viewInitializationService.initializeView(request, mav);
@@ -105,7 +105,7 @@ public class HomeController extends MultiActionController {
     public ModelAndView contact(HttpServletRequest request, HttpServletResponse httpServletResponse) {
 
         ModelAndView mav = new ModelAndView("page");
-        mav.addObject("title", "easyrec :: contact us");
+        mav.addObject("title", "华联云谷::联系我们");
         mav.addObject("page", "contact");
         return mav;
     }
@@ -113,7 +113,7 @@ public class HomeController extends MultiActionController {
     public ModelAndView about(HttpServletRequest request, HttpServletResponse httpServletResponse) {
 
         ModelAndView mav = new ModelAndView("page");
-        mav.addObject("title", "easyrec :: about");
+        mav.addObject("title", "华联云谷::关于");
         mav.addObject("page", "about");
         return mav;
     }

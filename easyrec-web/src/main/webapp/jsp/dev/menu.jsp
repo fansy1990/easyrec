@@ -23,7 +23,7 @@
 <div class="menu_admin">
     <div style="position:absolute; left:13px; top:25px; padding: 10px;">
         <a href="${webappPath}/home">
-            <span class="logo">easyrec :: 管理员</span>
+            <span class="logo">华联云谷推荐平台 :: 管理员</span>
         </a>
     </div>
 

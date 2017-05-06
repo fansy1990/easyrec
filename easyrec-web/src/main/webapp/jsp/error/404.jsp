@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <%@ page isErrorPage="true" %>
 <head>
-    <title>easyrec :: page not found</title>
+    <title>华联云谷推荐平台 :: 页面不存在</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/easyrec.css"/>
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/img/favicon.ico"/>
     <link rel="icon" href="<%=request.getContextPath()%>/img/favicon.ico"/>

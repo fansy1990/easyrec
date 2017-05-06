@@ -70,10 +70,10 @@
                     <div id="div_conversion_help" style="display: none">
                        如果用户购买了之前在推荐中点击的物品，
                         <br/>
-                        那么用户点击推荐的行为会被easyrec记录下来，
+                        那么用户点击推荐的行为会被华联云谷记录下来，
                         <br/>
                         此时 <span class="conversions">转化率</span> 便提升了。 <br/>
-                        这些指标显示出easyrec对于增加您的销售额以及延长您的顾客的访问时间的直接影响。<br/>
+                        这些指标显示出华联云谷对于增加您的销售额以及延长您的顾客的访问时间的直接影响。<br/>
 
                         <hr/>
                     </div>
@@ -125,7 +125,7 @@
                     <div id="div_maximum_help" style="display: none">
                         此值显示每月允许的最大百分比
                         <br/>
-                        如果这个超出这个限制，easyrec直到下个月结束将不会展示推荐<br/>
+                        如果这个超出这个限制，华联云谷直到下个月结束将不会展示推荐<br/>
                         您可以从<br/>
                         <a target="_blank" href="${updateUrl}">${updateUrl}</a><br/>
                         下载easyrec，并在您自己的服务器上托管easyrec。

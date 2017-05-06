@@ -81,7 +81,7 @@ public class ItemSearchController extends MultiActionController {
 
         Security.setAttribute(request, "menu", "items");
 
-        mav.addObject("title", "easyrec :: view items");
+        mav.addObject("title", "华联云谷::查看项目");
         mav.addObject("selectedMenu", "myEasyrec");
         mav.addObject("menubar", "viewItems");
         mav.addObject("page", "easyrec/viewitems");

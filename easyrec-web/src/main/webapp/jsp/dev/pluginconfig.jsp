@@ -46,12 +46,12 @@
     }
 </style>
 
-<h2>back tracking</h2>
+<h2>回溯跟踪</h2>
 <table class="configtable">
     <tr>
-        <th class="configparam">enabled</th>
+        <th class="configparam">启用</th>
         <td class="configedit">
-            <a id="backtracking" href="javascript:backtracking('${operatorId}', '${tenantId}');">change</a>
+            <a id="backtracking" href="javascript:backtracking('${operatorId}', '${tenantId}');">更改</a>
         </td>
         <td class="configvalue" id="edit-backtracking">
             <div>${backtrackingEnabled}</div>
@@ -72,9 +72,9 @@
         </td>
     </tr>
     <tr id="layer-backtrackingURL" style="display:table-row">
-        <th class="configparam">back tracking URL</th>
+        <th class="configparam">跟踪路径</th>
         <td class="configedit">
-            <a id="backtrackingURL" href="javascript:changeBackTrackingURL('${operatorId}', '${tenantId}');">edit</a>
+            <a id="backtrackingURL" href="javascript:changeBackTrackingURL('${operatorId}', '${tenantId}');">编辑</a>
         </td>
         <td class="configvalue">
             <div id="static-backtrackingURL">${backtrackingURL}</div>
@@ -84,12 +84,12 @@
     </tr>
 </table>
 
-<h2>plugin scheduler</h2>
+<h2>算法调度器</h2>
 <table class="configtable">
     <tr>
-        <th class="configparam">enabled</th>
+        <th class="configparam">启用</th>
         <td class="configedit">
-            <a id="scheduler" href="javascript:scheduler('${operatorId}', '${tenantId}');">change</a>
+            <a id="scheduler" href="javascript:scheduler('${operatorId}', '${tenantId}');">更改</a>
         </td>
         <td class="configvalue" id="edit-scheduler">
             <div>${schedulerEnabled}</div>
@@ -110,9 +110,9 @@
         </td>
     </tr>
     <tr id="layer-executiontime" style="display:table-row">
-        <th class="configparam">daily excecution time <em>hh:mm (e.g. 23:15)</em></th>
+        <th class="configparam">每日执行时间<em>hh:mm (e.g. 23:15)</em></th>
         <td class="configedit">
-            <a id="excecutiontime" href="javascript:changeExecutionTime('${operatorId}', '${tenantId}');">edit</a>
+            <a id="excecutiontime" href="javascript:changeExecutionTime('${operatorId}', '${tenantId}');">编辑</a>
         </td>
         <td class="configvalue">
             <div id="static-excecutiontime">${schedulerExecutionTime}</div>
@@ -122,12 +122,12 @@
     </tr>
 </table>
 
-<h2>archive actions</h2>
+<h2>行为归档</h2>
 <table class="configtable">
     <tr>
-        <th class="configparam">enabled</th>
+        <th class="configparam">启用</th>
         <td class="configedit">
-            <a id="archiving" href="javascript:archiving('${operatorId}', '${tenantId}');">change</a>
+            <a id="archiving" href="javascript:archiving('${operatorId}', '${tenantId}');">更改</a>
         </td>
         <td class="configvalue" id="edit-archiving">
             <div>${archivingEnabled}</div>
@@ -152,9 +152,9 @@
         </td>
     </tr>
     <tr id="layer-archivingtime" style="display:table-row">
-        <th class="configparam">archive actions older than X days <em>(e.g. 365)</em></th>
+        <th class="configparam">归档超过X天的行为<em>(e.g. 365)</em></th>
         <td class="configedit">
-            <a id="archivingtime" href="javascript:changeArchivingTime('${operatorId}', '${tenantId}');">edit</a>
+            <a id="archivingtime" href="javascript:changeArchivingTime('${operatorId}', '${tenantId}');">编辑</a>
         </td>
         <td class="configvalue">
             <div id="static-archivingtime">${archivingTime}</div>
@@ -164,12 +164,12 @@
     </tr>
 </table>
 
-<h2>session to user mapping</h2>
+<h2>用户映射会话</h2>
 <table class="configtable">
     <tr>
-        <th class="configparam">enabled</th>
+        <th class="configparam">启用</th>
         <td class="configedit">
-            <a id="sessionmapping" href="javascript:sessionmapping('${operatorId}', '${tenantId}');">change</a>
+            <a id="sessionmapping" href="javascript:sessionmapping('${operatorId}', '${tenantId}');">更改</a>
         </td>
         <td class="configvalue" id="edit-sessionmapping">
             <div>${sessionToUserMappingEnabled}</div>
@@ -192,12 +192,12 @@
     </tr>
 </table>                   
                    
-<h2>limit actions</h2>
+<h2>行为数限制</h2>
 <table class="configtable">
     <tr id="layer-maxactions" style="display:table-row">
-        <th class="configparam">maximum actions per month <em>(e.g. 100000)</em></th>
+        <th class="configparam">每月最大行为数<em>(e.g. 100000)</em></th>
         <td class="configedit">
-            <a id="maxactions" href="javascript:changeMaxActions('${operatorId}', '${tenantId}');">edit</a>
+            <a id="maxactions" href="javascript:changeMaxActions('${operatorId}', '${tenantId}');">编辑</a>
         </td>
         <td class="configvalue">
             <div id="static-maxactions">${maxActions}</div>
@@ -216,14 +216,14 @@
     </tr>
 </table>
 
-<h2>association type settings (executed in order of association type id)</h2>
+<h2>关联类型设置(按照关联类型编号的顺序执行)</h2>
 <c:choose>
     <c:when test="${assocTypes != null && not empty assocTypes}">
         <c:forEach items="${assocTypes}" var="assocType">
             <h3>${assocType.key} (id: ${assocType.value})</h3> 
             <table class="configtable">
                 <tr>
-                    <th class="configparam">plugin</th>
+                    <th class="configparam">插件</th>
                     <td class="configedit"></td>
                     <td class="configvalue">
                         <select id="plugin-select-${assocType.value}"
@@ -247,7 +247,7 @@
                     </td>
                     <td rowspan="1">
                         <div class="pluginconfig_help" id="div_${assocType.value}_plugin">
-                            Select the plugin you want to run for this association type.
+                           选择运行此关联类型的插件
                         </div>
                     </td>
                 </tr>
