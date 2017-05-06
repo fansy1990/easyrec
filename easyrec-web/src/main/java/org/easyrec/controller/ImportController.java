@@ -55,7 +55,7 @@ public class ImportController extends MultiActionController {
 
         if (Security.isDeveloper(request)) {
             ModelAndView mav = new ModelAndView("page");
-            mav.addObject("title", "easyrec :: import");
+            mav.addObject("title", "华联云谷::导入");
             mav.addObject("page", "upload");
             mav.addObject("remoteTenants", remoteTenantDAO.getAllTenants());
             return mav;

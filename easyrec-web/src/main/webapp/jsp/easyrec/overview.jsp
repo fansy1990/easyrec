@@ -30,12 +30,12 @@
 <p>
     这个图表显示了所选租户每天的用户行为数。使用下拉菜单可以选择图表的时间段
     。 想要了解你的租户的更多数据信息，可以通过点击上方“统计”菜单查看。
-     <a href="javascript:followingSteps('${tenant.stringId}')">集成信息</a> 框把所有你需要的东西捆绑在一起，进而把easyrec集成到你的网站中。
+     <a href="javascript:followingSteps('${tenant.stringId}')">集成信息</a> 框把所有你需要的东西捆绑在一起，进而把华联云谷推荐平台集成到你的网站中。
 </p>
 
 <c:if test="${displayingDefaultTenant}">
     <div class="info">
-        <b>注意:</b> 这是为你自动生成的沙箱租户。 使用这个租户你可以试玩easyrec。一旦你理解了easyrec的基本原理， 你可以创建自己的租户并将其整合到你的网站.
+        <b>注意:</b> 这是为你自动生成的沙箱租户。 使用这个租户你可以试玩华联云谷。一旦你理解了华联云谷推荐平台的基本原理， 你可以创建自己的租户并将其整合到你的网站.
         你可以使用下面的链接在你的沙箱租户中产生行为：
 
         <a href="javascript:simulateViewAction()">产生查看行为</a> |

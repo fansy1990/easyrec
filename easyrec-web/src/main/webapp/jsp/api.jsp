@@ -678,7 +678,7 @@
 
         我们通过
         <a href="https://sourceforge.net/p/easyrec/wiki/API/" target="_blank">REST API</a>
-        给您提供easyrec的全部服务。
+        给您提供华联云谷推荐平台的全部服务。
         推荐结果会以XML或者JSON的形式返回。
          <br/>
         我们也提供AngularJS服务，它包含了所有的API功能。

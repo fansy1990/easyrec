@@ -78,7 +78,7 @@ public class PluginsController extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);
@@ -119,7 +119,7 @@ public class PluginsController extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);
@@ -144,7 +144,7 @@ public class PluginsController extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);
@@ -177,7 +177,7 @@ public class PluginsController extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);
@@ -209,7 +209,7 @@ public class PluginsController extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);
@@ -250,7 +250,7 @@ public class PluginsController extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);
@@ -279,7 +279,7 @@ public class PluginsController extends MultiActionController {
 
         ModelAndView mav = new ModelAndView("page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);

@@ -84,7 +84,7 @@
 
     <p>使用行为类型管理器去创建
        <a href="https://sourceforge.net/p/easyrec/wiki/Action Types/" target="_blank">行为类型</a>。
-        行为类型是指您提供给easyrec的行为的所属类型。
+        行为类型是指您提供给华联云谷的行为的所属类型。
         创建行为类型之后您就可以在API调用时使用它。
 
     </p>

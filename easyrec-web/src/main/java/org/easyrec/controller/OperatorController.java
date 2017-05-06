@@ -95,7 +95,7 @@ public class OperatorController extends MultiActionController {
 
     private ModelAndView security(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("page");
-        mav.addObject("title", "operator");
+        mav.addObject("title", "操作者");
         mav.addObject("operator", operatorDAO.get(Security.signedInOperatorId(request)));
         mav.addObject("operatorId", ServletUtils.getSafeParameter(request, "operatorId", ""));
 
@@ -119,7 +119,7 @@ public class OperatorController extends MultiActionController {
         Operator operator = operatorDAO.get(operatorId);
         mav.addObject("operator", operator);
 
-        mav.addObject("title", "easyrec :: update account");
+        mav.addObject("title", "华联云谷::更新账户");
         mav.addObject("page", "operator/update");
         mav.addObject("selectedMenu", "");
         return mav;
@@ -302,7 +302,7 @@ public class OperatorController extends MultiActionController {
         }
 
         mav.setViewName("page");
-        mav.addObject("title", "easyrec :: activation");
+        mav.addObject("title", "华联云谷::激活");
         mav.addObject("page", "operator/activate");
         mav.addObject("success", success);
         mav.addObject("selectedMenu", "");
@@ -314,7 +314,7 @@ public class OperatorController extends MultiActionController {
     public ModelAndView changePassword(HttpServletRequest request, HttpServletResponse httpServletResponse) {
 
         ModelAndView mav = new ModelAndView("page");
-        mav.addObject("title", "easyrec :: update password");
+        mav.addObject("title", "华联云谷::更新密码");
         mav.addObject("page", "operator/changepassword");
         mav.addObject("operatorId", Security.signedInOperatorId(request));
 

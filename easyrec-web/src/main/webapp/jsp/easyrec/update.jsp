@@ -38,7 +38,7 @@
         <form id="registerOperator" action="" onsubmit="javascript:return false;">
             <label for="url">URL:</label>
 
-            <p>在此处输入您的网站的URL。easyrec服务将自动将此URL添加到通过API调用发送的相对URL中。
+            <p>在此处输入您的网站的URL。华联云谷推荐平台服务将自动将此URL添加到通过API调用发送的相对URL中。
                 您稍后可以在租户配置中编辑此值。
 
             </p>

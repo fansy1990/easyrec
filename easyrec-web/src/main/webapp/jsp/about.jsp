@@ -7,7 +7,7 @@
     <span class="upperheadline">关于</span>
 
     <div style="padding-top:15px; padding-right: 20px;">
-        几分钟之内给你的网站添加 <span class="fartblack">easyrec</span> 推荐！
+        几分钟之内给你的网站添加 <span class="fartblack"></span> 推荐！
         <span class="fartblack">easyrec</span> is a web application that provides recommendation services using
         standardized web technologies ready to be integrated into your site. To get started with easyrec we
         recommend to read the <a href="https://sourceforge.net/p/easyrec/wiki/get_started/" target="_blank"> getting started guide</a> and the <a href="https://sourceforge.net/p/easyrec/wiki/API/" target="_blank">REST API</a> page.

@@ -24,7 +24,7 @@
 
     <div style="position:absolute; left:13px; top:25px; padding: 10px;">
         <a href="${webappPath}/easyrec/overview?<c:if test="${signedInOperatorId!=null}">operatorId=${signedInOperatorId}</c:if>">
-            <span class="logo">easyrec</span>
+            <span class="logo">华联云谷推荐平台</span>
         </a>
     </div>
 

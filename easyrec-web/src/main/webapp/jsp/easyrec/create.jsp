@@ -32,9 +32,9 @@
 
     <p>在这里您可以创建一个新的<easyrec:wikiLink name="租户"/>。 租户名将会被应用在
         <a href="${webappPath}/API">API</a> 调用中，用来在当你产生操作或接收推荐时识别您的网站 。
-        如果您想在您的本地主机上测试easyrec，您可以使用 http://127.0.0.1/作为URL。如果您并不太清楚
-        怎样去启动easyrec，您可以阅读
-        <easyrec:wikiLink name="开启easyrec"/> 指导说明。
+        如果您想在您的本地主机上测试华联云谷推荐平台，您可以使用 http://127.0.0.1/作为URL。如果您并不太清楚
+        怎样去启动华联云谷推荐平台，您可以阅读
+        <easyrec:wikiLink name="开启华联云谷"/> 指导说明。
     </p>
 
     <div id="createTenantForm" class="contentContainer">
@@ -49,7 +49,7 @@
 
             <label for="url">URL:</label>
 
-            <p>在这里输入您的网站的URL。easyrec服务将自动将此URL添加到通过API调用发送的相对URL中。
+            <p>在这里输入您的网站的URL。华联云谷推荐平台服务将自动将此URL添加到通过API调用发送的相对URL中。
                 您稍后可以在租户配置中编辑此值。
 
             </p>
@@ -77,7 +77,7 @@
 <div id="followingSteps" style="display:none;">
     <img src="${webappPath}/img/success.gif" style="float:left;"/>
 
-    <p>您的租户已经成功创建了！现在您可以使用您的租户ID和API密钥将操作发送到easyrec服务。
+    <p>您的租户已经成功创建了！现在您可以使用您的租户ID和API密钥将操作发送到华联云谷推荐平台服务。
 
     </p>
 
