@@ -124,7 +124,7 @@ public class BatchUploadController extends SimpleFormController implements Appli
 
         ModelAndView mav = new ModelAndView("dev/page");
 
-        mav.addObject("title", "easyrec :: administration");
+        mav.addObject("title", "华联云谷::管理员");
 
         mav.addObject("operatorId", operatorId);
         mav.addObject("tenantId", tenantId);
